@@ -52,11 +52,26 @@ function bigPicture() {
 }
 
 function showSpaceCraft() {
-    var spaceCraft = czmlDataSource1.entities.getById('lunarProbe') ;	
-  //  viewer.zoomTo(spaceCraft, 0,0,-5);
-	  viewer.trackedEntity = spaceCraft ;
-	  
-    console.log ("value of spacCraft variable ", spaceCraft) ;
+   console.log("Hello!") ;
+   var spaceCraft = czmlDataSource1.entities.getById('lunarProbe') ;
+   console.log(spaceCraft) ;   
+
+   var center = spaceCraft.position.getValue(Cesium.JulianDate.now()) ;
+       center.x = center.x + 10 ;
+       center.y = center.y + 10 ;  // move center away from the spacecraft
+
+ //  console.log ("spacecraft position ", spaceCraft.position.getValue()) ;
+   console.log ("center ", center) ;
+	   
+// Get the transform from local east-north-up at the adjusted center.
+   var transform = Cesium.Transforms.eastNorthUpToFixedFrame(center);
+
+// Using a cartesian offset
+   viewer.camera.lookAtTransform(transform, spaceCraft.position.getValue(Cesium.JulianDate.now()));
+	
+   // viewer.zoomTo(spaceCraft, 0,0,-10);
+  	 // viewer.trackedEntity = spaceCraft ;  
+  console.log("goodbye!") ;
 }
 function showTheMoon() {
 
@@ -149,15 +164,12 @@ function activateButtons() {
          var offset = Cesium.Cartesian3.clone(camera.position);
          var transform = Cesium.Matrix4.fromRotationTranslation(icrfToFixed);
          camera.lookAtTransform(transform, offset);
-		
-	//	var earth = scene.globe.ellipsoid ;
-    //	var rotquat = Cesium.Quaternion.fromRotationMatrix(icrfToFixed) ;
-   //   earth.orientation.setValue(rotquat) ;
 	
     }
-}
+}  
 	clock.multiplier = 3 * 60 * 60;
-    scene.preRender.addEventListener(icrf);
+    scene.preRender.addEventListener(icrf); 
+
     scene.globe.enableLighting = true;
 	  
        viewer.scene.camera.frustum.far = 1e12;            //Move the far wall of the viewing frustum.
