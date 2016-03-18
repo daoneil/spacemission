@@ -52,46 +52,23 @@ function bigPicture() {
 }
 
 function showSpaceCraft() {
-   console.log("Hello!") ;
-   var spaceCraft = czmlDataSource1.entities.getById('lunarProbe') ;
-   console.log(spaceCraft) ;   
-
-   var center = spaceCraft.position.getValue(Cesium.JulianDate.now()) ;
-       center.x = center.x + 10 ;
-       center.y = center.y + 10 ;  // move center away from the spacecraft
-
- //  console.log ("spacecraft position ", spaceCraft.position.getValue()) ;
-   console.log ("center ", center) ;
-	   
-// Get the transform from local east-north-up at the adjusted center.
-   var transform = Cesium.Transforms.eastNorthUpToFixedFrame(center);
-
-// Using a cartesian offset
-   viewer.camera.lookAtTransform(transform, spaceCraft.position.getValue(Cesium.JulianDate.now()));
-	
-   // viewer.zoomTo(spaceCraft, 0,0,-10);
-  	 // viewer.trackedEntity = spaceCraft ;  
-  console.log("goodbye!") ;
+    viewer.trackedEntity = undefined
+    var spaceCraft = czmlDataSource1.entities.getById('lunarProbe') ;	
+	  viewer.trackedEntity = spaceCraft ;
 }
 function showTheMoon() {
-
+    viewer.trackedEntity = undefined
 	var ourMoon = czmlDataSource2.entities.getById('theMoon') ;	
-	
-	  viewer.zoomTo(ourMoon, 0,0,-2000);
-	  viewer.trackedEntity = ourMoon ;
-	  
-    console.log ("value of ourMoon variable ", ourMoon) ;
+    viewer.trackedEntity = ourMoon ;
 }
 function showTheEarth() {
-
-	// Set position with a top-down view
+      viewer.trackedEntity = undefined
+  // Set position with a top-down view
       viewer.camera.setView({
       destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.0, 150000000.0)
      });
 	 
 	  viewer.trackedEntity = earthCore ;
-	  
-    console.log ("value of ourMoon variable ", ourMoon) ;
 }
 
 function initializeButtons() {
@@ -105,17 +82,12 @@ function initializeButtons() {
 }
 
 function activateButtons() {
-
-   // viewer.entities.collectionChanged.addEventListener(
-   //	 	function collectionChangedEventCallback(collection, added, removed, changed) {
-	        // Enable the buttons
+	  // Enable the buttons
          document.getElementById('showShip').disabled = false;
          document.getElementById('showMoon').disabled = false;
          document.getElementById('showEarth').disabled = false;
          document.getElementById('bigPicture').disabled = false;
-         document.getElementById('announcement').innerHTML = "Models have loaded; select a view point.";
-//	}) ;
-
+         document.getElementById('announcement').innerHTML = "Models have loaded; you may select a view point.";
 }
 
 </script>
@@ -151,26 +123,26 @@ function activateButtons() {
        viewer.dataSources.add(czmlDataSource1); 
 	   
    var czmlDataSource2 = new Cesium.CzmlDataSource();
-       czmlDataSource2.load('LunarOrbit_withBillboard.czml');
+       czmlDataSource2.load('LunarOrbit_andBillboard.czml');
        viewer.dataSources.add(czmlDataSource2);   
 
-  function icrf(scene, time) {
+	      function icrf(scene, time) {
     if (scene.mode !== Cesium.SceneMode.SCENE3D) {
         return;
     }
+
     var icrfToFixed = Cesium.Transforms.computeIcrfToFixedMatrix(time);
     if (Cesium.defined(icrfToFixed)) {
-         var camera = viewer.camera;
-         var offset = Cesium.Cartesian3.clone(camera.position);
-         var transform = Cesium.Matrix4.fromRotationTranslation(icrfToFixed);
-         camera.lookAtTransform(transform, offset);
-	
+        var camera = viewer.camera;
+        var offset = Cesium.Cartesian3.clone(camera.position);
+        var transform = Cesium.Matrix4.fromRotationTranslation(icrfToFixed);
+        camera.lookAtTransform(transform, offset);
     }
-}  
-	clock.multiplier = 3 * 60 * 60;
-    scene.preRender.addEventListener(icrf); 
-
+}
+	 clock.multiplier = 3 * 60 * 60;
+    scene.preRender.addEventListener(icrf);
     scene.globe.enableLighting = true;
+	  
 	  
        viewer.scene.camera.frustum.far = 1e12;            //Move the far wall of the viewing frustum.
 	
@@ -179,12 +151,11 @@ function activateButtons() {
       destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.0, 1500000000.0)
      });
 	
-	var earthCore = viewer.entitites.add(
+	var earthCore = viewer.entities.add(
      { id:"core",
        position : Cesium.Cartesian3(0,0,0),
        point: { show : false  }
 	 });
-	 
 
 	
 	// viewer.extend(Cesium.viewerCesiumInspectorMixin);  //Add Cesium Inspector

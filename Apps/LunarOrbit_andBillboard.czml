@@ -13,13 +13,6 @@
 {  
    "id": "theMoon",
    "availability":["2014-07-22T11:00:00Z/2014-08-12T22:07:27Z"],
-     "ellipsoid" : {
-         "radii" : { "cartesian" : [ 1737000, 1737000, 1737000 ] },
-          "fill" : true,
-		  "material":{
-               "solidColor":{ "color":{ "rgba":[ 100,100,100,255 ] } }
-			 }
-    },
 	   "billboard" : {
         "eyeOffset" : {
             "cartesian" : [0.0, 0.0, 0.0]
