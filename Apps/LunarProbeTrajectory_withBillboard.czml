@@ -5,7 +5,7 @@
 	"clock":{
       "interval":"2014-07-22T11:00:00Z/2014-08-12T22:07:27Z",
       "currentTime":"2014-07-22T11:00:00Z",
-      "multiplier":60,
+      "multiplier":2100,
       "range":"LOOP_STOP",
       "step":"SYSTEM_CLOCK_MULTIPLIER"
   }},
