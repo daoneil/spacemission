@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <title>OrbitalDebris SGP4 Demo</title>
+  <link rel="stylesheet" type="text/css" href="satellite-js-master/sgp4_verification/css/app.css">
+  <script src="satellite-js-master/dist/satellite.js"></script>
+  <script src="satellite-js-master/dist/satellite.min.js"></script>
+  <script src="satellite-js-master/sgp4_verification/lib/angular/angular.js"></script>
+  <script src="IrridiumDebris.js"></script>
+  <script type="text/javascript" src="x3dom.js"></script>
+  	<style>
+	  p.case { clear: both; border-top: 0px; solid: #fff; }
+	</style>
+	<link rel="stylesheet" type="text/css" href="x3dom.css" />
+	
+</head>
+<body onload="displayLatLon()">
+<script>
+// Sample TLE
+var tleLine1 = '1 25544U 98067A   13149.87225694  .00009369  00000-0  16828-3 0  9031',
+    tleLine2 = '2 25544 051.6485 199.1576 0010128 012.7275 352.5669 15.50581403831869';
+
+// Initialize a satellite record
+var satrec = satellite.twoline2satrec(tleLine1, tleLine2);
+var timeSinceTleEpochMinutes = 1 ;
+//  Propagate satellite using time since epoch (in minutes).
+var positionAndVelocity = satellite.sgp4 (satrec, timeSinceTleEpochMinutes);
+
+//  Or you can use a calendar date and time (obtained from Javascript Date).
+var now = new Date();
+// NOTE: while Javascript Date returns months in range 0-11, all satellite.js methods require
+// months in range 1-12.
+var positionAndVelocity = satellite.propagate(
+    satrec,
+    now.getUTCFullYear(),
+    now.getUTCMonth() + 1, // Note, this function requires months in range 1-12.
+    now.getUTCDate(),
+    now.getUTCHours(),
+    now.getUTCMinutes(),
+    now.getUTCSeconds()
+);
+
+// The position_velocity result is a key-value pair of ECI coordinates.
+// These are the base results from which all other coordinates are derived.
+var positionEci = positionAndVelocity.position,
+    velocityEci = positionAndVelocity.velocity;
+
+var deg2rad = 0.0174533 ;
+
+// Set the Observer at 122.03 West by 36.96 North, in RADIANS
+var observerGd = {
+    longitude: -122.0308 * deg2rad,
+    latitude: 36.9613422 * deg2rad,
+    height: 0.370
+};
+
+// You will need GMST for some of the coordinate transforms.
+// http://en.wikipedia.org/wiki/Sidereal_time#Definition
+// NOTE: GMST, though a measure of time, is defined as an angle in radians.
+// Also, be aware that the month range is 1-12, not 0-11.
+var gmst = satellite.gstimeFromDate(
+    now.getUTCFullYear(),
+    now.getUTCMonth() + 1, // Note, this function requires months in range 1-12.
+    now.getUTCDate(),
+    now.getUTCHours(),
+    now.getUTCMinutes(),
+    now.getUTCSeconds()
+);
+
+// You can get ECF, Geodetic, Look Angles, and Doppler Factor.
+var positionEcf   = satellite.eciToEcf(positionEci, gmst),
+    observerEcf   = satellite.geodeticToEcf(observerGd),
+    positionGd    = satellite.eciToGeodetic(positionEci, gmst),
+    lookAngles    = satellite.ecfToLookAngles(observerGd, positionEcf) ;
+  //  dopplerFactor = satellite.dopplerFactor(observerCoordsEcf, positionEcf, velocityEcf);
+
+// The coordinates are all stored in key-value pairs.
+// ECI and ECF are accessed by `x`, `y`, `z` properties.
+var satelliteX = positionEci.x,
+    satelliteY = positionEci.y,
+    satelliteZ = positionEci.z;
+
+// Look Angles may be accessed by `azimuth`, `elevation`, `range_sat` properties.
+var azimuth   = lookAngles.azimuth,
+    elevation = lookAngles.elevation,
+    rangeSat  = lookAngles.rangeSat;
+
+// Geodetic coords are accessed via `longitude`, `latitude`, `height`.
+var longitude = positionGd.longitude,
+    latitude  = positionGd.latitude,
+    height    = positionGd.height;
+
+//  Convert the RADIANS to DEGREES for pretty printing (appends "N", "S", "E", "W". etc).
+var longitudeStr = satellite.degreesLong(longitude),
+    latitudeStr  = satellite.degreesLat(latitude);
+
+	console.log("longitude " + longitudeStr) ;
+	console.log("latitude " + latitudeStr) ;
+
+var rotAngle = 0 ;                  // accrued rotation angle for the Earth
+var minstep = 0 ;                   // minute step
+var hrstep = 0 ;                    // hour step
+var datestep = 0 ;                  // day step      
+
+// Declare orbital debris variables
+var debrisRecords = [] ;
+var datasetSize = irridiumDebris.length ;
+var posVel = [] ;                              // positions and velocities of orbital debris
+
+function propagateOrbitalDebris() {
+var j = 0 ;
+for (i=0; i <  datasetSize; i++) {
+  var tle1 = irridiumDebris[j] ;
+  var tle2 = irridiumDebris[j + 1] ;
+  console.log (tle1 + "  " + tle2) ;
+  if (typeof tle1 == 'string' || tle1 instanceof String || typeof tle2 == 'string' || tle2 instanceof String) {
+      debrisRecords[i] = satellite.twoline2satrec(tle1, tle2) ; }
+  j = j + 2 ;
+}
+// Propagate debris using time since epoch
+for (i=0; i <  datasetSize; i++) {
+  if (debrisRecords[i] != undefined) { posVel[i] = satellite.sgp4 (debrisRecords[i], timeSinceTleEpochMinutes); }
+}
+// Propagate debris using time since epoch
+for (i=0; i <  datasetSize; i++) {
+  if (debrisRecords[i] != undefined) { 
+     posVel[i] = satellite.propagate(
+       debrisRecords[i],
+       now.getUTCFullYear(),
+       now.getUTCMonth() + 1, // Note, this function requires months in range 1-12.
+       now.getUTCDate(),
+       now.getUTCHours(),
+       now.getUTCMinutes(),
+       now.getUTCSeconds()
+    );
+  } //endif
+}//next i
+
+}//end propateOrbitalDebris
+
+/*
+var posECI = new Array() ;
+var velECI = new Array() ;
+for (i=0; i <  debrisRecords.length; i++) {
+   posECI[i] = posVel[i].position,
+   velECI[i] = posVel[i].velocity;
+}
+ */
+
+ function displayLatLon() { 
+    document.getElementById("longitude").innerHTML = longitudeStr ;
+	document.getElementById("latitude").innerHTML = latitudeStr ;
+	document.getElementById("altitude").innerHTML = height ;
+	
+	propagateOrbitalDebris() ;
+	startUpdate() ;
+	}
+
+function geodetic2Cartesian()
+{
+    var trajectory = {x: 0, y: 0, z: 0 } ;   // trajectory object
+	
+    var ellipsoidHeight =  	6356752.3142 ;  // polar radius in meters
+	var majorAxis =  	6378137 ;           // equatorial radius in meters
+	var eccentricity2 = 0.0066943799014  ; // eccentricity squared
+	var nu = majorAxis/Math.sqrt(1 - eccentricity2 * Math.sin(latitude)^2);
+	var x = (nu + ellipsoidHeight)* Math.cos(latitude)*Math.cos(longitude) ;
+	var y = (nu + ellipsoidHeight)* Math.cos(latitude)*Math.sin(longitude) ;
+	var z = ((1-eccentricity2)*nu + ellipsoidHeight)* Math.sin(latitude) ;
+	
+	document.getElementById("xpos").innerHTML = x ;
+	document.getElementById("ypos").innerHTML = y ;  // display the coordinates
+	document.getElementById("zpos").innerHTML = z ;
+	
+	// trajectory.x = x ; trajectory.y = y ; trajectory.z = z ;
+	 trajectory.x = satelliteX ; trajectory.y = satelliteY ; trajectory.z = satelliteZ ;
+	
+	return trajectory ;
+}
+
+function startUpdate() {
+ 
+    var trajectory = geodetic2Cartesian() ; 
+   // var vizScale = 10000000 ;
+   var vizScale = 10000 ;
+    /*-----------------------------
+	 *  Create a satellite model 
+	 *----------------------------*/
+	// var pos = [mission.coordinates[0].X/10000, mission.coordinates[0].Y/10000, mission.coordinates[0].Z/10000] 
+	  var pos = [trajectory.x/vizScale, trajectory.y/vizScale, trajectory.z/vizScale] ;
+	  console.log ("satellite position " + pos[0] + " " + pos[1] + " " + pos[2] );
+	  var t = document.createElement('Transform');
+        t.setAttribute("translation", pos[0] + " " + pos[1] + " " + pos[2] );
+        t.setAttribute("id", 'satPosition');
+		t.setAttribute("scale", 0.005 + " " + 0.005 + " " + 0.005) ;
+		
+		var satModel = document.createElement('Inline') ;
+		satModel.setAttribute('url', "TrianaSatellite.x3d") ;
+		
+		t.appendChild(satModel) ;
+		var objsat = document.getElementById('theEarth');
+        objsat.appendChild(t);
+		
+		
+	for (i=0; i <  datasetSize; i++) {
+	if (debrisRecords[i] != undefined) {
+		t = document.createElement('Transform');
+        t.setAttribute("translation", posVel[i].position.x/vizScale + " " + posVel[i].position.y/vizScale + " " + posVel[i].position.z/vizScale);
+		t.setAttribute("id", 'd' + i);
+        t.setAttribute("scale", 0.004 + " " + 0.004 + " " + 0.004 );
+        var s = document.createElement('Shape');
+		
+		// Appearance Node
+		var app = document.createElement('Appearance');
+		
+		// Material Node
+		var mat = document.createElement('Material');
+		mat.setAttribute("diffuseColor", 255 + " " + 215 + " " + 0) ;
+		
+		app.appendChild(mat);
+		
+		s.appendChild(app);
+		
+        t.appendChild(s);
+        var b = document.createElement('Box');
+        s.appendChild(b);
+        
+        var ot = document.getElementById('theEarth');
+        ot.appendChild(t);
+  	  } // endif 	
+	} //next i
+		setInterval(function () {updatePosition() }, 50);
+   };
+
+function updatePosition()   {
+	var trajectory = geodetic2Cartesian() ; 
+   // var vizScale = 10000000 ;
+	var vizScale = 10000 ;
+    // Read the next set of coordinates from the mission JavaScript object.
+      var pos = [trajectory.x/vizScale, trajectory.y/vizScale, trajectory.z/vizScale] ;
+	  var xPos = pos[0] ;
+	  var yPos = pos[1] ;
+	  var zPos = pos[2] ;
+    //  document.getElementById('satPosition').setAttribute('translation', xPos + " " + yPos + " " + zPos);
+	//  console.log("x  " + Xpos + "  y  " + Ypos + "  z  " + Zpos) ;
+	
+	if (minstep > 59) { hrstep = hrstep + 1 ; minstep = 0 ; }
+	if (hrstep > 23) { datestep = datestep + 1 ; hrstep = 0 ; }
+	
+	positionAndVelocity = satellite.propagate(
+		satrec,
+		now.getUTCFullYear(),
+		now.getUTCMonth() + 1, // Note, this function requires months in range 1-12.
+		now.getUTCDate() + datestep,
+		now.getUTCHours() + hrstep,
+		now.getUTCMinutes() + minstep,
+		now.getUTCSeconds()
+);
+
+	// Propagate debris using time since epoch
+for (i=0; i <  datasetSize; i++) {
+  if (debrisRecords[i] != undefined) {
+     posVel[i] = satellite.propagate(
+        debrisRecords[i],
+        now.getUTCFullYear(),
+        now.getUTCMonth() + 1, // Note, this function requires months in range 1-12.
+        now.getUTCDate() + datestep,
+        now.getUTCHours() + hrstep,
+        now.getUTCMinutes() + minstep,
+        now.getUTCSeconds()
+      );
+  }// endif
+ } //next i
+ 
+ 
+	minstep = minstep + 0.1 ;
+	
+	positionEci = positionAndVelocity.position ;
+	satelliteX = positionEci.x;
+    satelliteY = positionEci.y;
+    satelliteZ = positionEci.z;
+	
+	for (i=0; i <  datasetSize; i++) {
+	   if (posVel[i] != undefined) {
+	    document.getElementById('d' + i).setAttribute('translation', posVel[i].position.x/vizScale + " " + posVel[i].position.y/vizScale + " " + posVel[i].position.z/vizScale);
+	//	console.log( "d" + i + "  " + posVel[i].position.x/vizScale + " " + posVel[i].position.y/vizScale + " " + posVel[i].position.z/vizScale)
+	   } //endif
+	}//next i
+     rotAngle = rotAngle + 0.00727  ;
+  	 document.getElementById("continents").setAttribute('rotation',0 + " " + 1 + " " + 0 + " " + rotAngle) ;
+	  
+     // Display the date and time stamp.	 
+  //   document.getElementById("demo").innerHTML =
+  //   "<p>" + "<H2>" + "Date:  " + mission.coordinates[step].Date + "  Time: " + mission.coordinates[step].Time + "</H2>" + "<p>"
+ 
+    // step = step + 5 ;  // Increment the coordinate index.
+ }; 
+
+</script>
+  <table><tr>
+    <td>Longitude</td>
+    <td><p id="longitude">lon.</p></td>
+    <td>Latitude</td>
+	<td><p id="latitude">lat.</p></td>
+    <td>Altitude</td>
+	<td><p id="altitude">height</p></td>
+  </tr>
+  <tr>
+    <td>X</td>
+	<td><p id="xpos">x</p></td>
+	<td>Y</td>
+	<td><p id="ypos">y</p></td>
+	<td>Z</td>
+	<td><p id="zpos">z</p></td>
+  </tr></table>
+  
+  	<p class="case"> 
+		<X3D xmlns="http://www.web3d.org/specifications/x3d-namespace" showStat="false" showLog="false" x="0px" y="0px" width="800px" height="600px">
+          <Scene>
+			<background DEF='bgnd' transparency='0' skyColor='0.0 0.0 0.0' ></background>
+	   <Transform id="theEarth" translation="0 0 0">
+	       <Transform id="continents" translation="0 0 0">
+              <Shape>
+                <Appearance>
+                    <ImageTexture url='EarthImage.jpg'/>					
+                </Appearance>
+                <Sphere radius='0.63781'/>
+             </Shape>
+		  </Transform>
+		</Transform> 
+		   <Viewpoint fieldOfView="0.785398" position="1 1.1 1.5" orientation="1 -1 0 -0.785"  description=""/>
+          </Scene>
+        </X3D>
+    </p>
+	
+	<p class="case" align="center">
+</body>
+</html>
