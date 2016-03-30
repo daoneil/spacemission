@@ -1,0 +1,2581 @@
+{
+    "accessors": {
+        "accessor_280": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 0,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1494,
+            "type": "SCALAR"
+        },
+        "accessor_283": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 2988,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1830,
+            "type": "SCALAR"
+        },
+        "accessor_286": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 6648,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 19446,
+            "type": "SCALAR"
+        },
+        "accessor_289": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 45540,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 8751,
+            "type": "SCALAR"
+        },
+        "accessor_292": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 63042,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1284,
+            "type": "SCALAR"
+        },
+        "accessor_295": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 65610,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 4410,
+            "type": "SCALAR"
+        },
+        "accessor_298": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 74430,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1722,
+            "type": "SCALAR"
+        },
+        "accessor_301": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 77874,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 12186,
+            "type": "SCALAR"
+        },
+        "accessor_304": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 102246,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1404,
+            "type": "SCALAR"
+        },
+        "accessor_307": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 105054,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2202,
+            "type": "SCALAR"
+        },
+        "accessor_310": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 109458,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1548,
+            "type": "SCALAR"
+        },
+        "accessor_313": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 112554,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 5340,
+            "type": "SCALAR"
+        },
+        "accessor_316": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 123234,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 50499,
+            "type": "SCALAR"
+        },
+        "accessor_319": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 224232,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 744,
+            "type": "SCALAR"
+        },
+        "accessor_322": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 225720,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 4299,
+            "type": "SCALAR"
+        },
+        "accessor_325": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 234318,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1878,
+            "type": "SCALAR"
+        },
+        "accessor_328": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 238074,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 17508,
+            "type": "SCALAR"
+        },
+        "accessor_331": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 273090,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 6822,
+            "type": "SCALAR"
+        },
+        "accessor_334": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 286734,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 16131,
+            "type": "SCALAR"
+        },
+        "accessor_337": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 318996,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2052,
+            "type": "SCALAR"
+        },
+        "accessor_340": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 323100,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 20808,
+            "type": "SCALAR"
+        },
+        "accessor_343": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 364716,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 36,
+            "type": "SCALAR"
+        },
+        "accessor_346": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 364788,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 288,
+            "type": "SCALAR"
+        },
+        "accessor_348": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 0,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 61365,
+            "max": [
+                9.05239,
+                7.97192,
+                16.2929
+            ],
+            "min": [
+                -9.31715,
+                -6.53983,
+                -10.0008
+            ],
+            "type": "VEC3"
+        },
+        "accessor_350": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 736380,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 61365,
+            "max": [
+                1,
+                1,
+                1
+            ],
+            "min": [
+                -1,
+                -1,
+                -1
+            ],
+            "type": "VEC3"
+        },
+        "accessor_438": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 365364,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 72,
+            "type": "SCALAR"
+        },
+        "accessor_441": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 365508,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 294,
+            "type": "SCALAR"
+        },
+        "accessor_444": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 366096,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 276,
+            "type": "SCALAR"
+        },
+        "accessor_447": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 366648,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 132,
+            "type": "SCALAR"
+        },
+        "accessor_450": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 366912,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 354,
+            "type": "SCALAR"
+        },
+        "accessor_453": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 367620,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 138,
+            "type": "SCALAR"
+        },
+        "accessor_456": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 367896,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 882,
+            "type": "SCALAR"
+        },
+        "accessor_458": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1472760,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 894,
+            "max": [
+                0.8472,
+                0.740656,
+                14.6764
+            ],
+            "min": [
+                -0.723071,
+                -1.0752,
+                -0.399039
+            ],
+            "type": "VEC3"
+        },
+        "accessor_460": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1483488,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 894,
+            "max": [
+                1,
+                1,
+                1
+            ],
+            "min": [
+                -1,
+                -1,
+                -1
+            ],
+            "type": "VEC3"
+        },
+        "accessor_548": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 369660,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 942,
+            "type": "SCALAR"
+        },
+        "accessor_551": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 371544,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 36,
+            "type": "SCALAR"
+        },
+        "accessor_554": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 371616,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 36,
+            "type": "SCALAR"
+        },
+        "accessor_557": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 371688,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2424,
+            "type": "SCALAR"
+        },
+        "accessor_560": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 376536,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 66,
+            "type": "SCALAR"
+        },
+        "accessor_563": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 376668,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 792,
+            "type": "SCALAR"
+        },
+        "accessor_566": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 378252,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 702,
+            "type": "SCALAR"
+        },
+        "accessor_568": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1494216,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 1678,
+            "max": [
+                1.20627,
+                0.871624,
+                2.3944
+            ],
+            "min": [
+                -0.868525,
+                -1.08317,
+                0
+            ],
+            "type": "VEC3"
+        },
+        "accessor_570": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1514352,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 1678,
+            "max": [
+                1,
+                1,
+                1
+            ],
+            "min": [
+                -1,
+                -1,
+                -1
+            ],
+            "type": "VEC3"
+        },
+        "accessor_658": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 379656,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 282,
+            "type": "SCALAR"
+        },
+        "accessor_661": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 380220,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 588,
+            "type": "SCALAR"
+        },
+        "accessor_664": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 381396,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 132,
+            "type": "SCALAR"
+        },
+        "accessor_667": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 381660,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1662,
+            "type": "SCALAR"
+        },
+        "accessor_670": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 384984,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 4602,
+            "type": "SCALAR"
+        },
+        "accessor_673": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 394188,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 306,
+            "type": "SCALAR"
+        },
+        "accessor_676": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 394800,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 1626,
+            "type": "SCALAR"
+        },
+        "accessor_678": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1534488,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 2302,
+            "max": [
+                3.75727,
+                3.84927,
+                2.89174
+            ],
+            "min": [
+                -3.72727,
+                -3.63527,
+                -0.419999
+            ],
+            "type": "VEC3"
+        },
+        "accessor_680": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1562112,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 2302,
+            "max": [
+                1,
+                1,
+                1
+            ],
+            "min": [
+                -1,
+                -1,
+                -1
+            ],
+            "type": "VEC3"
+        },
+        "accessor_816": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 398052,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 3084,
+            "type": "SCALAR"
+        },
+        "accessor_819": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 404220,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 636,
+            "type": "SCALAR"
+        },
+        "accessor_822": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 405492,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 5814,
+            "type": "SCALAR"
+        },
+        "accessor_825": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 417120,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 3303,
+            "type": "SCALAR"
+        },
+        "accessor_828": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 423726,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2175,
+            "type": "SCALAR"
+        },
+        "accessor_831": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 428076,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2505,
+            "type": "SCALAR"
+        },
+        "accessor_834": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 433086,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2154,
+            "type": "SCALAR"
+        },
+        "accessor_837": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 437394,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 2217,
+            "type": "SCALAR"
+        },
+        "accessor_840": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 441828,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 3081,
+            "type": "SCALAR"
+        },
+        "accessor_843": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 447990,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 3027,
+            "type": "SCALAR"
+        },
+        "accessor_846": {
+            "bufferView": "bufferView_852",
+            "byteOffset": 454044,
+            "byteStride": 0,
+            "componentType": 5123,
+            "count": 132,
+            "type": "SCALAR"
+        },
+        "accessor_848": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1589736,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 22894,
+            "max": [
+                0.276901,
+                16.002,
+                0.41475
+            ],
+            "min": [
+                -24.2242,
+                -16.256,
+                -0.41075
+            ],
+            "type": "VEC3"
+        },
+        "accessor_850": {
+            "bufferView": "bufferView_853",
+            "byteOffset": 1864464,
+            "byteStride": 12,
+            "componentType": 5126,
+            "count": 22894,
+            "max": [
+                1,
+                1,
+                1
+            ],
+            "min": [
+                -1,
+                -1,
+                -1
+            ],
+            "type": "VEC3"
+        }
+    },
+    "animations": {},
+    "asset": {
+        "generator": "collada2gltf@cf6371beb0bdc18ba603378d5e40c966da53d385",
+        "premultipliedAlpha": true,
+        "profile": {
+            "api": "WebGL",
+            "version": "1.0.2"
+        },
+        "version": "1.0"
+    },
+    "bufferViews": {
+        "bufferView_852": {
+            "buffer": "LRO_spacecraft_with_materials",
+            "byteLength": 454308,
+            "byteOffset": 0,
+            "target": 34963
+        },
+        "bufferView_853": {
+            "buffer": "LRO_spacecraft_with_materials",
+            "byteLength": 2139192,
+            "byteOffset": 454308,
+            "target": 34962
+        }
+    },
+    "buffers": {
+        "LRO_spacecraft_with_materials": {
+            "byteLength": 2593500,
+            "type": "arraybuffer",
+            "uri": "LRO_spacecraft_with_materials.bin"
+        }
+    },
+    "materials": {
+        "Crater-flat-black-effect": {
+            "name": "Crater-flat-black",
+            "technique": "technique0",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            }
+        },
+        "Crater-flat-gold-effect": {
+            "name": "Crater-flat-gold",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.549172,
+                    0.156512,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.45,
+                    0.45,
+                    0.45,
+                    1
+                ]
+            }
+        },
+        "Crater-smooth-gold-effect": {
+            "name": "Crater-smooth-gold",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.549172,
+                    0.156512,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.45,
+                    0.45,
+                    0.45,
+                    1
+                ]
+            }
+        },
+        "Default-effect": {
+            "name": "Default",
+            "technique": "technique0",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.784314,
+                    0.784314,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            }
+        },
+        "LRO-DetailBlackFlat-effect": {
+            "name": "LRO-DetailBlackFlat",
+            "technique": "technique0",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            }
+        },
+        "LRO-DetailBlackSmooth-effect": {
+            "name": "LRO-DetailBlackSmooth",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.097734,
+                    0.097734,
+                    0.097734,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.05,
+                    0.05,
+                    0.05,
+                    1
+                ]
+            }
+        },
+        "LRO-DetailGoldFlat-effect": {
+            "name": "LRO-DetailGoldFlat",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.54902,
+                    0.156863,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.66,
+                    0.66,
+                    0.66,
+                    1
+                ]
+            }
+        },
+        "LRO-DetailGoldSmooth-effect": {
+            "name": "LRO-DetailGoldSmooth",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.547799,
+                    0.157656,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.66,
+                    0.66,
+                    0.66,
+                    1
+                ]
+            }
+        },
+        "LRO-DetailGreyFlat-effect": {
+            "name": "LRO-DetailGreyFlat",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.633478,
+                    0.633478,
+                    0.633478,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.37,
+                    0.37,
+                    0.37,
+                    1
+                ]
+            }
+        },
+        "LRO-DetailGreySmooth-effect": {
+            "name": "LRO-DetailGreySmooth",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.633478,
+                    0.633478,
+                    0.633478,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.375,
+                    0.375,
+                    0.375,
+                    1
+                ]
+            }
+        },
+        "LRO-Dish-effect": {
+            "name": "LRO-Dish",
+            "technique": "technique2",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.714046,
+                    0.719463,
+                    0.691371,
+                    1
+                ],
+                "emission": [
+                    0.055,
+                    0.055,
+                    0.055,
+                    1
+                ],
+                "shininess": 98,
+                "specular": [
+                    0.37,
+                    0.37,
+                    0.37,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-black-fl-effect": {
+            "name": "LRO-accs-black-fl",
+            "technique": "technique0",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-bronze-fl-effect": {
+            "name": "LRO-accs-bronze-fl",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.760174,
+                    0.643153,
+                    0.368139,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.7,
+                    0.7,
+                    0.7,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-bronze-sm-effect": {
+            "name": "LRO-accs-bronze-sm",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.760174,
+                    0.643153,
+                    0.368139,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.705,
+                    0.705,
+                    0.705,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-gold-fl-effect": {
+            "name": "LRO-accs-gold-fl",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.783703,
+                    0.549828,
+                    0.155962,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.51,
+                    0.51,
+                    0.51,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-gold-sm-effect": {
+            "name": "LRO-accs-gold-sm",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.783703,
+                    0.549828,
+                    0.155962,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.505,
+                    0.505,
+                    0.505,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-grey-fl-effect": {
+            "name": "LRO-accs-grey-fl",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.307698,
+                    0.292027,
+                    0.295689,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.37,
+                    0.37,
+                    0.37,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-grey-sm-effect": {
+            "name": "LRO-accs-grey-sm",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.307698,
+                    0.292027,
+                    0.295689,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.36,
+                    0.36,
+                    0.36,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-silver-fl-effect": {
+            "name": "LRO-accs-silver-fl",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.784314,
+                    0.784314,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.765,
+                    0.765,
+                    0.765,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-silver-sm-effect": {
+            "name": "LRO-accs-silver-sm",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.784314,
+                    0.784314,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.75,
+                    0.75,
+                    0.75,
+                    1
+                ]
+            }
+        },
+        "LRO-accs-thermal-fl-effect": {
+            "name": "LRO-accs-thermal-fl",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.784314,
+                    0.624567,
+                    0.408301,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.565,
+                    0.565,
+                    0.565,
+                    1
+                ]
+            }
+        },
+        "LRO-mainbox-effect": {
+            "name": "LRO-mainbox",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.783703,
+                    0.549828,
+                    0.155962,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.665,
+                    0.665,
+                    0.665,
+                    1
+                ]
+            }
+        },
+        "LRO-radiator-base-effect": {
+            "name": "LRO-radiator-base",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.289525,
+                    0.284886,
+                    0.334844,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.23,
+                    0.23,
+                    0.23,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-1-effect": {
+            "name": "LRO-solarpanel-1",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.192807,
+                    0.204144,
+                    0.311135,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-2-effect": {
+            "name": "LRO-solarpanel-2",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.168473,
+                    0.178393,
+                    0.27188,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.95,
+                    0.95,
+                    0.95,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-3-effect": {
+            "name": "LRO-solarpanel-3",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.159295,
+                    0.181618,
+                    0.26636,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    1,
+                    1,
+                    1,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-4-effect": {
+            "name": "LRO-solarpanel-4",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.19445,
+                    0.205902,
+                    0.313796,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.855,
+                    0.855,
+                    0.855,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-5-effect": {
+            "name": "LRO-solarpanel-5",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.175658,
+                    0.185987,
+                    0.28346,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.945,
+                    0.945,
+                    0.945,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-6-effect": {
+            "name": "LRO-solarpanel-6",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.172096,
+                    0.168857,
+                    0.248412,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.94,
+                    0.94,
+                    0.94,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-7-effect": {
+            "name": "LRO-solarpanel-7",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.193469,
+                    0.204868,
+                    0.312215,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.83,
+                    0.83,
+                    0.83,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-bak-effect": {
+            "name": "LRO-solarpanel-bak",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.171038,
+                    0.181109,
+                    0.27602,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.16,
+                    0.16,
+                    0.16,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-bronze-effect": {
+            "name": "LRO-solarpanel-bronze",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.769238,
+                    0.697307,
+                    0.378821,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.645,
+                    0.645,
+                    0.645,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-bronze-sm-effect": {
+            "name": "LRO-solarpanel-bronze-sm",
+            "technique": "technique0",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.778286,
+                    0.7402,
+                    0.574014,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ]
+            }
+        },
+        "LRO-solarpanel-gold-effect": {
+            "name": "LRO-solarpanel-gold",
+            "technique": "technique1",
+            "values": {
+                "ambient": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "diffuse": [
+                    0.769238,
+                    0.597833,
+                    0.263401,
+                    1
+                ],
+                "emission": [
+                    0,
+                    0,
+                    0,
+                    1
+                ],
+                "shininess": 68,
+                "specular": [
+                    0.645,
+                    0.645,
+                    0.645,
+                    1
+                ]
+            }
+        }
+    },
+    "meshes": {
+        "Layer_1-mesh": {
+            "name": "Layer 1",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_280",
+                    "material": "Crater-flat-black-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_283",
+                    "material": "Crater-flat-gold-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_286",
+                    "material": "Crater-smooth-gold-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_289",
+                    "material": "Default-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_292",
+                    "material": "LRO-DetailBlackFlat-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_295",
+                    "material": "LRO-DetailBlackSmooth-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_298",
+                    "material": "LRO-DetailGoldFlat-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_301",
+                    "material": "LRO-DetailGoldSmooth-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_304",
+                    "material": "LRO-DetailGreyFlat-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_307",
+                    "material": "LRO-DetailGreySmooth-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_310",
+                    "material": "LRO-accs-black-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_313",
+                    "material": "LRO-accs-bronze-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_316",
+                    "material": "LRO-accs-bronze-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_319",
+                    "material": "LRO-accs-gold-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_322",
+                    "material": "LRO-accs-gold-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_325",
+                    "material": "LRO-accs-grey-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_328",
+                    "material": "LRO-accs-grey-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_331",
+                    "material": "LRO-accs-silver-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_334",
+                    "material": "LRO-accs-silver-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_337",
+                    "material": "LRO-accs-thermal-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_340",
+                    "material": "LRO-mainbox-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_343",
+                    "material": "LRO-radiator-base-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_350",
+                        "POSITION": "accessor_348"
+                    },
+                    "indices": "accessor_346",
+                    "material": "LRO-solarpanel-bronze-sm-effect",
+                    "mode": 4
+                }
+            ]
+        },
+        "Layer_2-mesh": {
+            "name": "Layer 2",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_438",
+                    "material": "LRO-accs-gold-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_441",
+                    "material": "LRO-accs-grey-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_444",
+                    "material": "LRO-accs-grey-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_447",
+                    "material": "LRO-DetailGreyFlat-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_450",
+                    "material": "LRO-DetailGreySmooth-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_453",
+                    "material": "LRO-accs-bronze-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_460",
+                        "POSITION": "accessor_458"
+                    },
+                    "indices": "accessor_456",
+                    "material": "LRO-accs-bronze-sm-effect",
+                    "mode": 4
+                }
+            ]
+        },
+        "Layer_3-mesh": {
+            "name": "Layer 3",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_548",
+                    "material": "LRO-accs-gold-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_551",
+                    "material": "LRO-accs-grey-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_554",
+                    "material": "LRO-accs-silver-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_557",
+                    "material": "LRO-accs-silver-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_560",
+                    "material": "Default-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_563",
+                    "material": "LRO-accs-bronze-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_570",
+                        "POSITION": "accessor_568"
+                    },
+                    "indices": "accessor_566",
+                    "material": "LRO-accs-bronze-sm-effect",
+                    "mode": 4
+                }
+            ]
+        },
+        "Layer_4-mesh": {
+            "name": "Layer 4",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_658",
+                    "material": "LRO-accs-silver-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_661",
+                    "material": "LRO-accs-silver-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_664",
+                    "material": "LRO-DetailGreyFlat-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_667",
+                    "material": "LRO-DetailGreySmooth-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_670",
+                    "material": "LRO-Dish-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_673",
+                    "material": "LRO-accs-bronze-fl-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_680",
+                        "POSITION": "accessor_678"
+                    },
+                    "indices": "accessor_676",
+                    "material": "LRO-accs-bronze-sm-effect",
+                    "mode": 4
+                }
+            ]
+        },
+        "Layer_5-mesh": {
+            "name": "Layer 5",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_816",
+                    "material": "LRO-solarpanel-bronze-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_819",
+                    "material": "LRO-solarpanel-bronze-sm-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_822",
+                    "material": "LRO-solarpanel-gold-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_825",
+                    "material": "LRO-solarpanel-1-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_828",
+                    "material": "LRO-solarpanel-2-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_831",
+                    "material": "LRO-solarpanel-3-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_834",
+                    "material": "LRO-solarpanel-4-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_837",
+                    "material": "LRO-solarpanel-5-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_840",
+                    "material": "LRO-solarpanel-6-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_843",
+                    "material": "LRO-solarpanel-7-effect",
+                    "mode": 4
+                },
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_850",
+                        "POSITION": "accessor_848"
+                    },
+                    "indices": "accessor_846",
+                    "material": "LRO-solarpanel-bak-effect",
+                    "mode": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "Layer_1": {
+            "children": [],
+            "matrix": [
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "Layer_1-mesh"
+            ],
+            "name": "Layer_1"
+        },
+        "Layer_2": {
+            "children": [],
+            "matrix": [
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "Layer_2-mesh"
+            ],
+            "name": "Layer_2"
+        },
+        "Layer_3": {
+            "children": [],
+            "matrix": [
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "Layer_3-mesh"
+            ],
+            "name": "Layer_3"
+        },
+        "Layer_4": {
+            "children": [],
+            "matrix": [
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "Layer_4-mesh"
+            ],
+            "name": "Layer_4"
+        },
+        "Layer_5": {
+            "children": [],
+            "matrix": [
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                0.20754,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "meshes": [
+                "Layer_5-mesh"
+            ],
+            "name": "Layer_5"
+        },
+        "node_5": {
+            "children": [
+                "Layer_1",
+                "Layer_2",
+                "Layer_3",
+                "Layer_4",
+                "Layer_5"
+            ],
+            "matrix": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                -1,
+                0,
+                0,
+                1,
+                0,
+                0,
+                0,
+                0,
+                0,
+                1
+            ],
+            "name": "Y_UP_Transform"
+        }
+    },
+    "programs": {
+        "program_0": {
+            "attributes": [
+                "a_normal",
+                "a_position"
+            ],
+            "fragmentShader": "LRO_spacecraft_with_materials0FS",
+            "vertexShader": "LRO_spacecraft_with_materials0VS"
+        },
+        "program_1": {
+            "attributes": [
+                "a_normal",
+                "a_position"
+            ],
+            "fragmentShader": "LRO_spacecraft_with_materials1FS",
+            "vertexShader": "LRO_spacecraft_with_materials1VS"
+        },
+        "program_2": {
+            "attributes": [
+                "a_normal",
+                "a_position"
+            ],
+            "fragmentShader": "LRO_spacecraft_with_materials2FS",
+            "vertexShader": "LRO_spacecraft_with_materials2VS"
+        }
+    },
+    "scene": "defaultScene",
+    "scenes": {
+        "defaultScene": {
+            "nodes": [
+                "node_5"
+            ]
+        }
+    },
+    "shaders": {
+        "LRO_spacecraft_with_materials0FS": {
+            "type": 35632,
+            "uri": "LRO_spacecraft_with_materials0FS.glsl"
+        },
+        "LRO_spacecraft_with_materials0VS": {
+            "type": 35633,
+            "uri": "LRO_spacecraft_with_materials0VS.glsl"
+        },
+        "LRO_spacecraft_with_materials1FS": {
+            "type": 35632,
+            "uri": "LRO_spacecraft_with_materials1FS.glsl"
+        },
+        "LRO_spacecraft_with_materials1VS": {
+            "type": 35633,
+            "uri": "LRO_spacecraft_with_materials1VS.glsl"
+        },
+        "LRO_spacecraft_with_materials2FS": {
+            "type": 35632,
+            "uri": "LRO_spacecraft_with_materials2FS.glsl"
+        },
+        "LRO_spacecraft_with_materials2VS": {
+            "type": 35633,
+            "uri": "LRO_spacecraft_with_materials2VS.glsl"
+        }
+    },
+    "skins": {},
+    "techniques": {
+        "technique0": {
+            "attributes": {
+                "a_normal": "normal",
+                "a_position": "position"
+            },
+            "parameters": {
+                "ambient": {
+                    "type": 35666
+                },
+                "diffuse": {
+                    "type": 35666
+                },
+                "emission": {
+                    "type": 35666
+                },
+                "modelViewMatrix": {
+                    "semantic": "MODELVIEW",
+                    "type": 35676
+                },
+                "normal": {
+                    "semantic": "NORMAL",
+                    "type": 35665
+                },
+                "normalMatrix": {
+                    "semantic": "MODELVIEWINVERSETRANSPOSE",
+                    "type": 35675
+                },
+                "position": {
+                    "semantic": "POSITION",
+                    "type": 35665
+                },
+                "projectionMatrix": {
+                    "semantic": "PROJECTION",
+                    "type": 35676
+                }
+            },
+            "program": "program_0",
+            "states": {
+                "enable": [
+                    2929
+                ]
+            },
+            "uniforms": {
+                "u_diffuse": "diffuse",
+                "u_emission": "emission",
+                "u_modelViewMatrix": "modelViewMatrix",
+                "u_normalMatrix": "normalMatrix",
+                "u_projectionMatrix": "projectionMatrix"
+            }
+        },
+        "technique1": {
+            "attributes": {
+                "a_normal": "normal",
+                "a_position": "position"
+            },
+            "parameters": {
+                "ambient": {
+                    "type": 35666
+                },
+                "diffuse": {
+                    "type": 35666
+                },
+                "emission": {
+                    "type": 35666
+                },
+                "modelViewMatrix": {
+                    "semantic": "MODELVIEW",
+                    "type": 35676
+                },
+                "normal": {
+                    "semantic": "NORMAL",
+                    "type": 35665
+                },
+                "normalMatrix": {
+                    "semantic": "MODELVIEWINVERSETRANSPOSE",
+                    "type": 35675
+                },
+                "position": {
+                    "semantic": "POSITION",
+                    "type": 35665
+                },
+                "projectionMatrix": {
+                    "semantic": "PROJECTION",
+                    "type": 35676
+                },
+                "shininess": {
+                    "type": 5126
+                },
+                "specular": {
+                    "type": 35666
+                }
+            },
+            "program": "program_1",
+            "states": {
+                "enable": [
+                    2929
+                ]
+            },
+            "uniforms": {
+                "u_diffuse": "diffuse",
+                "u_emission": "emission",
+                "u_modelViewMatrix": "modelViewMatrix",
+                "u_normalMatrix": "normalMatrix",
+                "u_projectionMatrix": "projectionMatrix",
+                "u_shininess": "shininess"
+            }
+        },
+        "technique2": {
+            "attributes": {
+                "a_normal": "normal",
+                "a_position": "position"
+            },
+            "parameters": {
+                "ambient": {
+                    "type": 35666
+                },
+                "diffuse": {
+                    "type": 35666
+                },
+                "emission": {
+                    "type": 35666
+                },
+                "modelViewMatrix": {
+                    "semantic": "MODELVIEW",
+                    "type": 35676
+                },
+                "normal": {
+                    "semantic": "NORMAL",
+                    "type": 35665
+                },
+                "normalMatrix": {
+                    "semantic": "MODELVIEWINVERSETRANSPOSE",
+                    "type": 35675
+                },
+                "position": {
+                    "semantic": "POSITION",
+                    "type": 35665
+                },
+                "projectionMatrix": {
+                    "semantic": "PROJECTION",
+                    "type": 35676
+                },
+                "shininess": {
+                    "type": 5126
+                },
+                "specular": {
+                    "type": 35666
+                }
+            },
+            "program": "program_2",
+            "states": {
+                "enable": [
+                    2929,
+                    2884
+                ]
+            },
+            "uniforms": {
+                "u_diffuse": "diffuse",
+                "u_emission": "emission",
+                "u_modelViewMatrix": "modelViewMatrix",
+                "u_normalMatrix": "normalMatrix",
+                "u_projectionMatrix": "projectionMatrix",
+                "u_shininess": "shininess"
+            }
+        }
+    }
+}

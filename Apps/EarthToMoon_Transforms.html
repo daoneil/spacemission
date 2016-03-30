@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version. -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>Space Mission</title>
+    <script src="../Build/Cesium/Cesium.js"></script>
+<style>
+      @import url(../Build/Cesium/Widgets/widgets.css);
+      html, body, #cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;	 
+}
+nav {
+    line-height:30px;
+    background-color:#eeeeee;
+   /* height:300px; */
+    width:200px;
+    float:left;
+    padding:5px;	  
+}
+section {
+    width:1200px;
+    float:left;
+    padding:10px;	 	 
+}
+footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px;	 	 
+}
+</style>
+<script>
+
+function bigPicture() {
+      viewer.trackedEntity = undefined
+	  scene.preRender.addEventListener(icrf);
+      viewer.camera.setView({
+      destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.0, 1500000000.0)
+     });
+	 viewer.trackedEntity = earthCore ;
+	 console.log ("big picture") ;
+}
+
+function showSpaceCraft() {
+    viewer.trackedEntity = undefined
+    scene.preRender.removeEventListener(icrf);
+
+    var spaceCraft = czmlDataSource1.entities.getById('lunarProbe') ;	
+	  viewer.trackedEntity = spaceCraft ;
+}
+function showTheMoon() {
+    viewer.trackedEntity = undefined
+    scene.preRender.removeEventListener(icrf);
+
+	var ourMoon = czmlDataSource2.entities.getById('theMoon') ;	
+    viewer.trackedEntity = ourMoon ;
+}
+function showTheEarth() {
+      viewer.trackedEntity = undefined  
+	  scene.preRender.addEventListener(icrf);
+  // Set position with a top-down view
+      viewer.camera.setView({
+      destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.0, 150000000.0)
+     });
+	 
+	  viewer.trackedEntity = earthCore ;
+}
+
+function initializeButtons() {
+	  document.getElementById('showShip').disabled = true;
+      document.getElementById('showMoon').disabled = true;
+      document.getElementById('showEarth').disabled = true;
+      document.getElementById('bigPicture').disabled = true;
+      document.getElementById('announcement').innerHTML = "Please wait, models are loading in approximately 30 seconds.";
+	  
+	  setTimeout(activateButtons,30000) ;
+}
+
+function activateButtons() {
+	  // Enable the buttons
+         document.getElementById('showShip').disabled = false;
+         document.getElementById('showMoon').disabled = false;
+         document.getElementById('showEarth').disabled = false;
+         document.getElementById('bigPicture').disabled = false;
+         document.getElementById('announcement').innerHTML = "Models have loaded; you may select a view point.";
+}
+
+</script>
+</head>
+
+<body onload="initializeButtons()">
+
+<header>
+<h2>Demonstration of a Space Mission Visualization using Cesium</h2>
+</header>
+
+<nav>
+<h3>Viewpoints</h3><br>
+<input type="button" id="bigPicture" value="Big Picture" onclick="bigPicture();" /><br>
+<input type="button" id="showShip" value="Spacecraft" onclick="showSpaceCraft();" /><br>
+<input type="button" id="showMoon" value="Moon" onclick="showTheMoon();" /><br>
+<input type="button" id="showEarth" value="Earth" onclick="showTheEarth();" /><br>
+</nav>
+
+<section>
+<h2 id="announcement">Earth to Moon trajectory</h2>
+  <div id="cesiumContainer"></div>
+  <script>
+   var viewer = new Cesium.Viewer('cesiumContainer', {
+       infoBox : false,
+       selectionIndicator : false
+	});
+	var scene = viewer.scene;
+    var clock = viewer.clock;
+
+   var czmlDataSource1 = new Cesium.CzmlDataSource();
+       czmlDataSource1.load('LunarProbeTrajectory_withBillboard.czml');
+       viewer.dataSources.add(czmlDataSource1); 
+	   
+   var czmlDataSource2 = new Cesium.CzmlDataSource();
+       czmlDataSource2.load('LunarOrbit_andBillboard.czml');
+       viewer.dataSources.add(czmlDataSource2);   
+
+    var camera = viewer.scene.camera;
+	
+    _cameraPositionBeforeFollow = {
+        destination: Cesium.Cartesian3.clone(camera.positionWC),
+        orientation: {
+            heading: camera.heading,
+            pitch: camera.pitch,
+            roll: camera.roll
+        },
+        transform: Cesium.Matrix4.clone(camera.transform)
+    };
+
+  function icrf(scene, time) {
+    if (scene.mode !== Cesium.SceneMode.SCENE3D) {   // may not be necessary
+        return;
+    }
+    var icrfToFixed = Cesium.Transforms.computeIcrfToFixedMatrix(time);
+    if (Cesium.defined(icrfToFixed)) {
+        var offset = Cesium.Cartesian3.clone(camera.position);
+        var transform = Cesium.Matrix4.fromRotationTranslation(icrfToFixed);
+        camera.lookAtTransform(transform, offset);
+    }
+};
+	 clock.multiplier = 3 * 60 * 60;
+    scene.preRender.addEventListener(icrf);
+	
+    scene.globe.enableLighting = true;
+	  
+       viewer.scene.camera.frustum.far = 1e12;            //Move the far wall of the viewing frustum.
+	
+	// Set position with a top-down view
+      viewer.camera.setView({
+      destination : Cesium.Cartesian3.fromDegrees(-117.16, 32.0, 1500000000.0)
+     });
+	
+	var earthCore = viewer.entities.add(
+     { id:"core",
+       position : Cesium.Cartesian3(0,0,0),
+       point: { show : false  }
+	 });
+
+	
+	// viewer.extend(Cesium.viewerCesiumInspectorMixin);  //Add Cesium Inspector
+</script>
+</section>
+
+<footer>
+Moon and Spacecraft trajectories were generated with the General Mission Analysis Tool (GMAT).
+</footer>
+
+</body>
+</html>
