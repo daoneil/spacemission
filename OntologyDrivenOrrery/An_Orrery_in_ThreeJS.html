@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Ontology-driven Orrery</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+	    <script src="http://cdnjs.cloudflare.com/ajax/libs/jsonld/0.3.15/jsonld.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="TrackballControls.js"></script>
+		<script src="OrbitalPropagator.js"></script>
+		<script src="compacted_OrbitalOntology.jsonld"  type="application/ld+json" id="datablock"></script>
+
+		<script>
+        var camera ;
+		var controls ;         // Declare global variables
+		var scene ;
+		var cube ;
+		var sphere ;
+		var line ;
+		var objNames = ["Earth_Orbit", "Mars_orbit", "Mercury_Orbit", "Venus_Orbit"] ;
+		var objSizes = [0.2, 0.17, 0.07, 0.2] ;
+		var objColors = [0x0066FF, 0xCC3333, 0xFF0000, 0xFFFFFF] ;
+		var curObj = new THREE.Object3D();
+		var celestialBody ;
+		var heavenlyBodies = [] ;
+		
+		function init() {
+            camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			controls = new THREE.TrackballControls( camera );
+				controls.rotateSpeed = 1.0;
+				controls.zoomSpeed = 1.2;
+				controls.panSpeed = 0.8;
+				controls.noZoom = false;
+				controls.noPan = false;
+				controls.staticMoving = true;
+				controls.dynamicDampingFactor = 0.3;
+				controls.keys = [ 65, 83, 68 ];
+				controls.addEventListener( 'change', render );
+				
+			scene = new THREE.Scene();
+								
+            renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+			
+
+		    var j = 0 ;
+		//  Here comes the Sun!
+			var geometry = new THREE.SphereGeometry( 0.6, 16, 16 );
+			var material = new THREE.MeshBasicMaterial( {color: 0xFFFF00, wireframe: false} );
+            sphere = new THREE.Mesh( geometry, material );
+			scene.add( sphere );
+			
+			var light = new THREE.PointLight( 0xff0000, 1, 100 );
+            light.position.set( 0, 0, 0 );           
+            scene.add( light );                       // currently no effect
+			
+			for (i = 0; i < 4; i++) { // Add the inner planets.
+		
+			 geometry = new THREE.SphereGeometry( objSizes[j], 16, 16 );
+		     material = new THREE.MeshBasicMaterial( {color: objColors[j], wireframe: false} );
+             sphere = new THREE.Mesh( geometry, material );
+			 
+			 sphere.name = objNames[i] ;
+             scene.add( sphere );
+			 
+			  j = j + 1 ;
+			} 
+			camera.position.z = 5;
+		
+		}
+		//-------------------------------------------
+ 	 	function render() {
+	           requestAnimationFrame( render );
+	           renderer.render( scene, camera );
+              }  
+   		  function animate() {
+				requestAnimationFrame( animate );
+				controls.update();
+				updatePosition() ;
+			}
+
+	function get_datablock() {
+     $.getJSON("compacted_OrbitalOntology.jsonld", function(result){
+        var it  = "<table border='1'><tr><th>Name</th><th>Arg.Perigee</th><th>Mean Anomoly</th><th>Eccentricty</th><th>Inclination</th><th>SemiMajor Axis</th><th>RAAN</th><th>Period</th></tr>"
+	     $.each(result.graph, function(i, field){
+		 
+		   if (i > 0 && i < 5) { // alert(field.name.value) ; 
+		   //smA,oI,aP,oE,aN,mAe,Sidereal
+             celestialBody = new Trajectory(field.name,
+		                             field.semiMajorAxis.value,
+									 field.inclination.value,
+									 field.argPerigee.value,
+									 field.eccentricity.value,
+									 field.raan.value,
+									 field.meanAnomoly.value,
+									 field.sidereal.value) ;
+			 
+			 heavenlyBodies.push(celestialBody) ;
+		   }
+		      
+		    it = it + "<tr>"
+		    if (i > 0 && i < 5) {
+			   it = it + "<td>" + field.name.value + "</td>";
+               it = it + "<td>" + field.argPerigee.value + "</td>";
+			   it = it + "<td>" + field.meanAnomoly.value + "</td>";
+			   it = it + "<td>" + field.eccentricity.value + "</td>";
+			   it = it + "<td>" + field.inclination.value + "</td>";
+			   it = it + "<td>" + field.semiMajorAxis.value + "</td>";
+			   it = it + "<td>" + field.raan.value + "</td>";
+			   it = it + "<td>" + field.sidereal.value + "</td>";
+			}
+			 it = it + "</tr>"
+        });
+		it = it + "</table>"
+		$("div").append(it);		
+		
+		traceOrbits() ;
+    });
+}
+//----------------------------------
+             init() ;
+			 get_datablock() ;
+             
+			 animate() ;
+
+		</script>
+
+<div></div>
+<i>RAAN = Right Ascension of Ascending Node</i>
+ <p id="modelDate">December 9, 2014</p>
+		
+	</body>
+</html>
