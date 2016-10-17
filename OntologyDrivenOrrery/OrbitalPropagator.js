@@ -117,7 +117,7 @@ function updatePosition()
 	  // Update the position for the following array of objects.
 	  var currentPosition = [] ;
       var deltaTime = 0 ;
-	  console.log("Length of heavenlyBodies  " + heavenlyBodies.length)
+	//  console.log("Length of heavenlyBodies  " + heavenlyBodies.length)
 	  for (var hB in heavenlyBodies) {
 	    
 		var hbTAnomoly = heavenlyBodies[hB].trueAnomoly ;
