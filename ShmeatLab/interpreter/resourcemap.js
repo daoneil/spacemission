@@ -26,4 +26,40 @@
    python blorbtool.py GAME.materials/Release/GAME.gblorb giload GAME.materials/Release/interpreter interpreter
 */
 
-StaticImageInfo = {};
+StaticImageInfo = {
+	{
+	 "image": 3, 
+     "url": "laboratory.jpg",
+     "alttext": "Laboratory",
+     "width": 1000,
+     "height": 750	
+	}
+	{
+	 "image": 4, 
+     "url": "waveBioReactor.jpg",
+     "alttext": "Wave Bioreactor",
+     "width": 879,
+     "height": 441	
+	}
+	{
+	 "image": 5, 
+     "url": "biomedicalFridge.jpg",
+     "alttext": "Refridgerator",
+     "width": 480,
+     "height": 480	
+	}
+	{
+	 "image": 6, 
+     "url": "bioreactorTank.jpg",
+     "alttext": "Stir Tank Bioreactor",
+     "width": 430,
+     "height": 450	
+	}
+	{
+	 "image": 7, 
+     "url": "incubator.jpg",
+     "alttext": "Incubator",
+     "width": 360,
+     "height": 480	
+	}
+};
