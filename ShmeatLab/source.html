@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Daniel O'Neil - Shmeat Lab — 1 of 1</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="author" content="Daniel O'Neil" />
+  <meta name="description" content="A page for the game Shmeat Lab by Daniel O'Neil." />
+  <link rel="stylesheet" href="style.css" type="text/css" media="all" />
+ </head>
+
+<body>
+
+<div class = "container">
+
+<div class ="sourcecoverimage">
+	<span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span>
+</div>
+
+<div class ="sourceintroduction">
+	<h1>
+		<span>Shmeat Lab</span> <span class="pagination">— 1 of 1</span>
+	</h1>
+	<h2>
+		<span>Daniel O'Neil</span>
+	</h2>
+	<div class ="sourcebibliography">
+		<span>Release 1</span>
+	</div>
+</div>
+
+<div class = "links">
+<ul>
+<li><a href="index.html">Home page</a></li><li><a href="source.txt">Complete text</a></li>
+</ul>
+</div>
+
+<div class = "source">
+<p class="indent0"><span class="heading">&quot;<span class="quote">Shmeat Lab</span>&quot; by Daniel O'Neil</span></p><p class="indent0">Include Glulx Image Centering by Emily Short.</p><p class="indent0">Include Vorple Notifications by Juhana Leinonen.</p><p class="indent0">Include Vorple Multimedia by Juhana Leinonen.</p><p class="indent0">Include Vorple Screen Effects by Juhana Leinonen.</p><p class="indent0">Include Vorple Modal Windows by Juhana Leinonen.</p><p class="indent0">Release along with the &quot;<span class="quote">Vorple</span>&quot; interpreter. Release along with source text. </p><p class="indent0">When play begins (this is the run property checks at the start of play rule): </p><p class="indent1">repeat with item running through things: </p><p class="indent2">if description of the item is &quot;<span class="quote"></span>&quot;: </p><p class="indent3">say &quot;<span class="quote">[</span><span class="substitution">item</span><span class="quote">] has no description.</span>&quot; </p><p class="indent0">When play begins: now the command prompt is &quot;<span class="quote">[</span><span class="substitution">time of day</span><span class="quote">] -&gt;</span>&quot;</p><p class="indent0"> When play begins:</p><p class="indent1"> display a notification reading &quot;<span class="quote">Welcome to the Shmeat Lab</span>&quot;;</p><p class="indent1"> Display Figure of Laboratory.</p><p class="indent3"></p><p class="indent0">The Meat Lab is a room. &quot;<span class="quote"> A small clean laboratory includes equipment for growing cultured meat. On a work-bench sits a wave bioreacter, a continuous stir tank, and a CO2 incubator. A tissue sample refrigerator (fridge) stands next to the workbench. </span></p><p class="indent0"><span class="quote">Your tasks include transfering tissue samples to the stir tank and wave bioractors and checking the status of the Petri dishes in the CO2 incubator.</span>&quot;</p><p class="indent0">Figure of Laboratory is the file &quot;<span class="quote">laboratory.jpg</span>&quot;.</p><p class="indent0">A wave bioreactor, stir-tank, incubator, and fridge are here. The wave bioreactor, stir-tank, incubator, and fridge are scenery.</p><p class="indent0">A plate is a supporter. It is part of the wave bioreactor.  A toggle switch is a device. It is part of the wave bioreactor. </p><p class="indent0">The description of the wave bioreactor is &quot;<span class="quote">[</span><span class="substitution">if toggle switch is switched on</span><span class="quote">] The metal plate gently rocks back and forth accompanyed by a low hum. [</span><span class="substitution">otherwise</span><span class="quote">] The wave bioreactor sits idle.  It has a toggle switch.</span>&quot;</p><p class="indent0">Figure of WaveReactor is the file &quot;<span class="quote">waveBioReactor.jpg</span>&quot;.</p><p class="indent0">Instead of examining the wave bioreactor: display the Figure of WaveReactor; say &quot;<span class="quote">The wave bioreactor gently rocks a sealed plastic bag filled with a nutritional serum and cultured cells. When these cells mature sufficiently, they can be added to the tank.</span>&quot;</p><p class="indent0">The fridge is a closed openable container. &quot;<span class="quote">[</span><span class="substitution">if open</span><span class="quote">] Upper shelves in the fridge have test tubes filled with cells from frogs. Lower shelves contain sealed transparent bags with cultured frog cells that are ready to be placed on the wave bioreactor. [</span><span class="substitution">otherwise</span><span class="quote">] A standard laboratory refrigerator that holds tissue samples.</span>&quot;</p><p class="indent0">Figure of BiomedicalFridge is the file &quot;<span class="quote">biomedicalFridge.png</span>&quot;.</p><p class="indent0">Instead of examining the fridge: display the Figure of BiomedicalFridge; say &quot;<span class="quote">Serums and Petri dishes with viable cells wait in the biomedical refridgerator until there is room in the incubator.</span>&quot;</p><p class="indent0">A tank is a closed openable container. &quot;<span class="quote">[</span><span class="substitution">if open</span><span class="quote">] Inside the tank is a solution with tissue cells growing in a nutrient rich medium. [</span><span class="substitution">otherwise</span><span class="quote">]  The cylindrical tank is closed. You can open it to pour the test tubes.</span>&quot;</p><p class="indent0">The tank is part of the stir-tank. A button is a device. It is part of the stir-tank. </p><p class="indent0">The description of the stir-tank is &quot;<span class="quote">[</span><span class="substitution">if button is switched on</span><span class="quote">] An agitator within the stir-tank makes a low swishing noise. [</span><span class="substitution">otherwise</span><span class="quote">] The stir-tank sits idle. It has a button to switch it on.</span>&quot;</p><p class="indent0">Figure of TankReactor is the file &quot;<span class="quote">bioreactorTank.jpg</span>&quot;.</p><p class="indent0">Instead of examining the tank: display the Figure of TankReactor; say &quot;<span class="quote">The bioreactor tank enables mass production of cultured meat. After the cells have grown in the  incubator and matured in on the wave bioreactor, the cultured cells can be integrated into a larger population in the tank</span>&quot;.</p><p class="indent0">Figure of Incubator is the file &quot;<span class="quote">incubator.jpg</span>&quot;.</p><p class="indent0">Instead of examining the incubator: display the Figure of Incubator; say &quot;<span class="quote">When space is available in this incubator, Petri dishes are transferred from the refidgerator to this incubator. After the cells have sufficiently grown and reproduced, the cultured cells are transferred to a nutritional serum in a plastic bag, sealed, and transferred to the wave bioreactor.</span>&quot;</p><p class="indent0">Test me with &quot;<span class="quote">x fridge/x wave bioreactor/x stir-tank/x incubator/open fridge/x fridge/switch on toggle switch/x wave bioreactor/switch on button/x stir-tank</span>&quot;.</p>
+</div>
+
+<div class ="notes">
+
+</div>
+
+</div>
+
+</body>
+
+</html>
