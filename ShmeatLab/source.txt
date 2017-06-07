@@ -1,12 +1,17 @@
 "Shmeat Lab" by Daniel O'Neil
 
-Include Glulx Image Centering by Emily Short.
 Include Vorple Notifications by Juhana Leinonen.
 Include Vorple Multimedia by Juhana Leinonen.
 Include Vorple Screen Effects by Juhana Leinonen.
 Include Vorple Modal Windows by Juhana Leinonen.
 
-Release along with the "Vorple" interpreter. Release along with source text. 
+Release along with the "Vorple" interpreter. 
+Release along with source text. 
+Release along with the file "laboratory.jpg".
+Release along with the file "waveBioReactor.jpg".
+Release along with the file "biomedicalFridge.png".
+Release along with the file "bioreactorTank.jpg".
+Release along with the file "incubator.jpg".
 
 When play begins (this is the run property checks at the start of play rule): 
 	repeat with item running through things: 
@@ -16,37 +21,53 @@ When play begins (this is the run property checks at the start of play rule):
 When play begins: now the command prompt is "[time of day] ->"
 
  When play begins:
-	 display a notification reading "Welcome to the Shmeat Lab";
-	 Display Figure of Laboratory.
+	display a notification reading "Welcome to the Shmeat Lab";
+	preload images {"laboratory.jpg","waveBioReactor.jpg","biomedicalFridge.png",
+                                       "bioreactorTank.jpg","incubator.jpg"};
+        place an image "laboratory.jpg" with the description "The Shmeat Lab", centered.
 			
-The Meat Lab is a room. " A small clean laboratory includes equipment for growing cultured meat. On a work-bench sits a wave bioreacter, a continuous stir tank, and a CO2 incubator. A tissue sample refrigerator (fridge) stands next to the workbench. 
+The Meat Lab is a room. " A small clean laboratory includes equipment for growing cultured meat. On a work-bench sits a [italic type]wave bioreacter [roman type], a [italic type] tank [roman type], and a CO2 [italic type]incubator[roman type]. A tissue sample [italic type]fridge[roman type] stands next to the workbench. 
 
-Your tasks include transfering tissue samples to the stir tank and wave bioractors and checking the status of the Petri dishes in the CO2 incubator."
+Petri dishes in the [italic type]fridge[roman type] contain the nascent muscle cells. Serum bags contain maturing muscle cells. The [italic type]wave bioreactor[roman type] slowly mixes the young cells with the serum. After the cells have matured sufficiently, the contents of the serum bags can be poured into the [italic type]tank[roman type] for further maturation. Your tasks involve [italic type] pouring[roman type] the contents of a [italic type]serum bag[roman type] into the [italic type]tank[roman type], placing a Petri dish into a serum bag, and placing a prepared serum bag on the wave bioreactor."
 
-Figure of Laboratory is the file "laboratory.jpg".
-
-A wave bioreactor, stir-tank, incubator, and fridge are here. The wave bioreactor, stir-tank, incubator, and fridge are scenery.
+A wave bioreactor, tank, incubator, and fridge are here. [The wave bioreactor, tank, incubator, and fridge are scenery.]
 
 A plate is a supporter. It is part of the wave bioreactor.  A toggle switch is a device. It is part of the wave bioreactor. 
-The description of the wave bioreactor is "[if toggle switch is switched on] The metal plate gently rocks back and forth accompanyed by a low hum. [otherwise] The wave bioreactor sits idle.  It has a toggle switch."
+The description of the wave bioreactor is "A wave bioreactor sits on the workbench."
 
-Figure of WaveReactor is the file "waveBioReactor.jpg".
-Instead of examining the wave bioreactor: display the Figure of WaveReactor; say "The wave bioreactor gently rocks a sealed plastic bag filled with a nutritional serum and cultured cells. When these cells mature sufficiently, they can be added to the tank."
+A serum bag is a transparent closed openable container. The serum bag is on the wave bioreactor plate. The description of the serum bag is "This sealed plastic bag is filled with a nutrient rich synthetic plasma and maturing muscle tissue".
+
+The description of the toggle switch is "[if toggle switch is switched on]You see a typical black rocker switch with the white numbers 1 and 0 to indicate the on and off positions. Currently, the toggle switch is set to the on position [otherwise]  The toggle switch is set to the off position".
+
+Before examining the wave bioreactor:
+	place an image "waveBioReactor.jpg" with the description "Wave Bioreactor", centered.
+
+Instead of examining the wave bioreactor:
+	say "[if toggle switch is switched on] The metal plate gently rocks back and forth accompanyed by a low hum. [otherwise] The wave bioreactor sits idle.  Notice that it has a toggle switch."
 
 The fridge is a closed openable container. "[if open] Upper shelves in the fridge have test tubes filled with cells from frogs. Lower shelves contain sealed transparent bags with cultured frog cells that are ready to be placed on the wave bioreactor. [otherwise] A standard laboratory refrigerator that holds tissue samples."
 
-Figure of BiomedicalFridge is the file "biomedicalFridge.png".
-Instead of examining the fridge: display the Figure of BiomedicalFridge; say "Serums and Petri dishes with viable cells wait in the biomedical refridgerator until there is room in the incubator."
+Before examining the fridge:
+	place an image "biomedicalFridge.png" with the description "A Biomedical Refridgerator", centered.
+	
+Instead of examining the fridge:
+	say "Serums and Petri dishes with viable cells wait in the biomedical refridgerator until there is room in the incubator."
 
 A tank is a closed openable container. "[if open] Inside the tank is a solution with tissue cells growing in a nutrient rich medium. [otherwise]  The cylindrical tank is closed. You can open it to pour the test tubes."
 
-The tank is part of the stir-tank. A button is a device. It is part of the stir-tank. 
-The description of the stir-tank is "[if button is switched on] An agitator within the stir-tank makes a low swishing noise. [otherwise] The stir-tank sits idle. It has a button to switch it on."
+The barrel is part of the tank. A button is a device. It is part of the tank. 
+The description of the tank is "A large stainless steel bioreactor tank sits next to the workbench. The tank barrel holds maturing muscle cells. A control panel on the side of the barrel has a button". The description of the barrel is "[if button is switched on] An agitator within the tank makes a low swishing noise. [otherwise] The tank sits idle. It has a button to switch it on." The description of the button is "You see a big red button that will start or stop the slow agitation within the tank barrel.".
 
-Figure of TankReactor is the file "bioreactorTank.jpg".
-Instead of examining the tank: display the Figure of TankReactor; say "The bioreactor tank enables mass production of cultured meat. After the cells have grown in the  incubator and matured in on the wave bioreactor, the cultured cells can be integrated into a larger population in the tank".
+Before examining the tank:
+	place an image "bioreactorTank.jpg" with the description "A Bioreactor Tank".
+	
+After examining the tank:
+	say "The bioreactor tank enables mass production of cultured meat. After the cells have grown in the  incubator and matured in on the wave bioreactor, the cultured cells can be integrated into a larger population in the tank".
 
-Figure of Incubator is the file "incubator.jpg".
-Instead of examining the incubator: display the Figure of Incubator; say "When space is available in this incubator, Petri dishes are transferred from the refidgerator to this incubator. After the cells have sufficiently grown and reproduced, the cultured cells are transferred to a nutritional serum in a plastic bag, sealed, and transferred to the wave bioreactor."
+Before examining the incubator:
+	place an image "incubator.jpg" with the description "An incubator", centered.
+	
+Instead of examining the incubator:
+	say "When space is available in this incubator, Petri dishes are transferred from the refidgerator to this incubator. After the cells have sufficiently grown and reproduced, the cultured cells are transferred to a nutritional serum in a plastic bag, sealed, and transferred to the wave bioreactor."
 
 Test me with "x fridge/x wave bioreactor/x stir-tank/x incubator/open fridge/x fridge/switch on toggle switch/x wave bioreactor/switch on button/x stir-tank".
