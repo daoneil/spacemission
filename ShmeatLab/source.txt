@@ -1,5 +1,7 @@
 "Shmeat Lab" by Daniel O'Neil
 
+Part 1 - Preamble
+
 Include Vorple Notifications by Juhana Leinonen.
 Include Vorple Multimedia by Juhana Leinonen.
 Include Vorple Screen Effects by Juhana Leinonen.
@@ -12,6 +14,10 @@ Release along with the file "waveBioReactor.jpg".
 Release along with the file "biomedicalFridge.png".
 Release along with the file "bioreactorTank.jpg".
 Release along with the file "incubator.jpg".
+Release along with the file "ShmeatLab_Workflow.png".
+Release along with an introductory postcard.
+Release along with the introductory booklet.
+Release along with a public solution.
 
 When play begins (this is the run property checks at the start of play rule): 
 	repeat with item running through things: 
@@ -21,25 +27,60 @@ When play begins (this is the run property checks at the start of play rule):
 When play begins: now the command prompt is "[time of day] ->"
 
  When play begins:
-	display a notification reading "Welcome to the Shmeat Lab";
+	display a notification with title "Welcome to the Shmeat Lab." reading "Have fun!";
 	preload images {"laboratory.jpg","waveBioReactor.jpg","biomedicalFridge.png",
-                                       "bioreactorTank.jpg","incubator.jpg"};
+                                       "bioreactorTank.jpg","incubator.jpg","ShmeatLab_Workflow.png"};
         place an image "laboratory.jpg" with the description "The Shmeat Lab", centered.
+
+Use scoring.
+When play begins:
+	now score is 0;
+	if Vorple is supported:
+		open HTML tag "div" called "score";
+		place a level 3 header reading "Score: [score]";
+		close HTML tag;
+	if Vorple is not supported:
+		now the left hand status line is "Score: [score]"; 
+
+Part 2 - The Lab
 			
 The Meat Lab is a room. " A small clean laboratory includes equipment for growing cultured meat. On a work-bench sits a [italic type]wave bioreacter [roman type], a [italic type] tank [roman type], and a CO2 [italic type]incubator[roman type]. A tissue sample [italic type]fridge[roman type] stands next to the workbench. 
 
 Petri dishes in the [italic type]fridge[roman type] contain the nascent muscle cells. Serum bags contain maturing muscle cells. The [italic type]wave bioreactor[roman type] slowly mixes the young cells with the serum. After the cells have matured sufficiently, the contents of the serum bags can be poured into the [italic type]tank[roman type] for further maturation. Your tasks involve [italic type] pouring[roman type] the contents of a [italic type]serum bag[roman type] into the [italic type]tank[roman type], placing a Petri dish into a serum bag, and placing a prepared serum bag on the wave bioreactor."
 
-A wave bioreactor, tank, incubator, and fridge are here. [The wave bioreactor, tank, incubator, and fridge are scenery.]
+Instead of going north:
+	clear only the main screen;
+	say "A laboratory workbench is located at the north end of the lab. A poster depicting the work-flow hangs above the workbench";
+	place an image "ShmeatLab_Workflow.png" with the description "Task Workflow", centered.
+
+Instead of going east:
+	clear only the main screen;
+	say "A biomedical refridgerator stands at the east end of the laboratory.";
+	place an image "biomedicalFridge.png" with the description "Fridge", centered.	
+
+Instead of going west:
+	clear only the main screen;
+	say "A bioreactor tank stands at the west end of the lab.";
+	place an image "bioreactorTank.jpg" with the description "Tank", centered.
+	
+Instead of going south:
+	clear only the main screen;
+	say "A glass door is the entrance to the Shmeat Lab, through the glass door you see a hallway. If the Shmeat Lab was part of a larger world, you could open the door; however Shmeat Lab is a single room simulator so you can't open the door. The reason for describing a door is that it would be creepy to be in a room with no doors.".
+
+A tank, incubator, and fridge are here. The tank, incubator, and fridge are fixed in place.
+
+A workbench is here. It is a a supporter that is fixed in place.
+A wave bioreactor is on the workbench.
 
 A plate is a supporter. It is part of the wave bioreactor.  A toggle switch is a device. It is part of the wave bioreactor. 
 The description of the wave bioreactor is "A wave bioreactor sits on the workbench."
 
-A serum bag is a transparent closed openable container. The serum bag is on the wave bioreactor plate. The description of the serum bag is "This sealed plastic bag is filled with a nutrient rich synthetic plasma and maturing muscle tissue".
+A transparent closed openable container called the serum bag is on the plate.  The description of the serum bag is "This sealed plastic bag is filled with a nutrient rich synthetic plasma and maturing muscle cells".
 
 The description of the toggle switch is "[if toggle switch is switched on]You see a typical black rocker switch with the white numbers 1 and 0 to indicate the on and off positions. Currently, the toggle switch is set to the on position [otherwise]  The toggle switch is set to the off position".
 
 Before examining the wave bioreactor:
+	clear only the main screen;
 	place an image "waveBioReactor.jpg" with the description "Wave Bioreactor", centered.
 
 Instead of examining the wave bioreactor:
@@ -48,6 +89,7 @@ Instead of examining the wave bioreactor:
 The fridge is a closed openable container. "[if open] Upper shelves in the fridge have test tubes filled with cells from frogs. Lower shelves contain sealed transparent bags with cultured frog cells that are ready to be placed on the wave bioreactor. [otherwise] A standard laboratory refrigerator that holds tissue samples."
 
 Before examining the fridge:
+	clear only the main screen;
 	place an image "biomedicalFridge.png" with the description "A Biomedical Refridgerator", centered.
 	
 Instead of examining the fridge:
@@ -57,17 +99,123 @@ A tank is a closed openable container. "[if open] Inside the tank is a solution 
 
 The barrel is part of the tank. A button is a device. It is part of the tank. 
 The description of the tank is "A large stainless steel bioreactor tank sits next to the workbench. The tank barrel holds maturing muscle cells. A control panel on the side of the barrel has a button". The description of the barrel is "[if button is switched on] An agitator within the tank makes a low swishing noise. [otherwise] The tank sits idle. It has a button to switch it on." The description of the button is "You see a big red button that will start or stop the slow agitation within the tank barrel.".
+The tank is fixed in place.
 
 Before examining the tank:
+	clear only the main screen;
 	place an image "bioreactorTank.jpg" with the description "A Bioreactor Tank".
 	
 After examining the tank:
 	say "The bioreactor tank enables mass production of cultured meat. After the cells have grown in the  incubator and matured in on the wave bioreactor, the cultured cells can be integrated into a larger population in the tank".
 
 Before examining the incubator:
+	clear only the main screen;
 	place an image "incubator.jpg" with the description "An incubator", centered.
 	
 Instead of examining the incubator:
 	say "When space is available in this incubator, Petri dishes are transferred from the refidgerator to this incubator. After the cells have sufficiently grown and reproduced, the cultured cells are transferred to a nutritional serum in a plastic bag, sealed, and transferred to the wave bioreactor."
+	
+A volume is a kind of value. 15.9 fl oz specifies a volume with parts ounces and tenths (optional, preamble optional). 	
+A fluid container is a kind of container. A fluid container has a volume called a fluid capacity. A fluid container has a volume called current volume. 
 
+A fluid container is a kind of container. The fluid capacity of a fluid container is usually 8.0 fl oz. The current volume of a fluid container is usually 0.0 fl oz. 
+
+Liquid is a kind of value. The liquids are culture, plasma, and slurry. A fluid container has a liquid. 
+The petri dish is a fluid container with fluid capacity 2.0 fl oz. The liquid of the petri dish is culture.  The current volume of the petri dish is 2.0 fl oz. The petri dish is in the fridge.
+The mold is a fluid container. The mold is on the workbench.
+The serum bag is a fluid container with fluid capacity 12.0 fl oz. The current volume of the serum bag is 12.0 fl oz.
+The bottle is a fluid container with fluid capacity 8.0 fl oz. The current volume of the bottle is 8.0 fl oz. The liquid of the bottle is plasma.
+The bottle is in the fridge.
+The tank is a fluid container with fluid capacity 80.0 fl oz. The current volume of the tank is 70.0 fl oz. The liquid of the tank is slurry.
+A ladle is a fluid container. The fluid capacity of the ladle is 4.0 fl oz. The ladle is on the workbench.
+
+Definition: a fluid container is empty if the current volume of it is 0.0 fl oz. Definition: a fluid container is full if the current volume of it is the fluid capacity of it. 
+
+Instead of examining a fluid container: 
+	if the noun is empty, 
+		say "You catch just a hint of [the liquid of the noun] at the bottom."; 
+	otherwise 
+		say "[The noun] contains [current volume of the noun in rough terms] of [liquid of the noun]." 
+
+To say (amount - a volume) in rough terms: 
+	if the amount is less than 0.5 fl oz: 
+		say "just a little bit left"; 
+	otherwise if tenths part of amount is greater than 3 and tenths part of amount is less than 7: 
+		let estimate be ounces part of amount; 
+		say "[estimate in words] or [estimate plus 1 in words] fluid ounces"; 
+	otherwise: 
+		if tenths part of amount is greater than 6, increase amount by 1.0 fl oz; 
+		say "about [ounces part of amount in words] fluid ounce[s]". 
+
+Before printing the name of a fluid container (called the target) while not drinking or pouring: 
+	if the target is empty: 
+		say "empty "; 
+	otherwise: 
+		do nothing. 
+
+After printing the name of a fluid container (called the target) while not examining or pouring: 
+	unless the target is empty: 
+		say " of [liquid of the target]"; 
+		omit contents in listing. 
+
+Understand the command "fill" as something new. 
+
+Understand "pour [fluid container] in/into/on/onto [fluid container]" as pouring it into. Understand "empty [fluid container] into [fluid container]" as pouring it into. Understand "fill [fluid container] with/from [fluid container]" as pouring it into (with nouns reversed). 
+
+Understand "pour [something] in/into/on/onto [something]" as pouring it into. Understand "empty [something] into [something]" as pouring it into. Understand "fill [something] with/from [something]" as pouring it into (with nouns reversed). 
+
+Pouring it into is an action applying to two things. 
+
+Check pouring it into: 
+	if the noun is not a fluid container, say "You can't pour [the noun]." instead; 
+	if the second noun is not a fluid container, say "You can't pour liquids into [the second noun]." instead; 
+	if the noun is the second noun, say "You can hardly pour [the noun] into itself." instead; 
+	if the noun is empty, say "No more [liquid of the noun] remains in [the noun]." instead; 
+	if the second noun is full, say "[The second noun] cannot contain any more than it already holds." instead. 
+
+Carry out pouring it into: 
+	let available capacity be the fluid capacity of the second noun minus the current volume of the second noun; 
+	if the available capacity is greater than the current volume of the noun, now the available capacity is the current volume of the noun; 
+	increase the current volume of the second noun by available capacity; 
+	decrease the current volume of the noun by available capacity. 
+
+Report pouring it into: 
+	say "[if the noun is empty][The noun] is now empty;[otherwise][The noun] now contains [current volume of the noun in rough terms] of [liquid of the noun]; [end if]"; 
+	say "[the second noun] contains [current volume of the second noun in rough terms] of [liquid of the second noun][if the second noun is full], and is now full[end if]." 
+
+Understand the liquid property as describing a fluid container. Understand "of" as a fluid container. 
+
+To say score notification message:
+	(- NotifyTheScore(score); -).
+	
+This is the enhanced notify score changes rule:
+	if Vorple is supported:
+		If the last notified score is not the score:
+			display a notification reading "[score notification message]";
+			now the last notified score is the score;
+			open HTML tag "div" called "score";
+			place a level 3 header reading "Score: [score]";
+			close HTML tag;
+	otherwise:
+		follow the notify score changes rule.
+
+The enhanced notify score changes rule is listed instead of the notify score changes rule in the turn sequence rulebook.
+
+After taking the petri dish:
+	increase score by one.
+	
+After taking the bottle:
+	increase score by one.
+	
+After taking the ladle:
+	increase score by one.
+
+After taking the serum bag:
+	increase score by one.
+	
+After taking mold:
+	increase score by one.
+
+After pouring:
+	increase score by two.
 Test me with "x fridge/x wave bioreactor/x stir-tank/x incubator/open fridge/x fridge/switch on toggle switch/x wave bioreactor/switch on button/x stir-tank".
