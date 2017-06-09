@@ -1,6 +1,9 @@
 Solution to "Shmeat Lab" by Daniel O'Neil
 
 X FRIDGE
+open fridge
+take petri dish
+take bottle
 X INCUBATOR
 X WAVE BIOREACTOR
 SWITCH ON TOGGLE SWITCH
@@ -10,4 +13,10 @@ TAKE SERUM BAG
 SWITCH OFF TOGGLE SWITCH
 X TANK
 OPEN TANK
+X serum bag
 OPEN SERUM BAG
+Empty serum bag into tank
+X tank
+x serum bag
+pour bottle into serum bag
+pour petri dish into serum bag
