@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daniel O'Neil - External Media Experiment — Play</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <meta name="author" content="Daniel O'Neil">
+  <link rel="stylesheet" href="style.css">
+  
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="interpreter/vorple.min.css">
+
+  
+ <script src='externalMedia.js'></script><link rel='stylesheet' href='externalMedia.css' type='text/css' media='all'></link></head>
+<body class="play">
+<div class="container">
+<div class="coverimage"><span><a href="Cover.jpg"><img src="Small Cover.jpg" border="1"></a></span></div>
+<div class="links">
+<div class="smalltitle">External Media Experiment</div>
+<ul>
+<li><a href="index.html">Home page</a></li>
+</ul>
+</div>
+
+<div id="gameport">
+<main id="haven">
+<div id="output">
+<div id="window0" aria-live="polite" aria-atomic="false" aria-relevant="additions"></div>
+</div>
+
+<form id="lineinput">
+<label id="lineinput-prefix" for="lineinput-field">#</label><input name="lineinput" id="lineinput-field" type="text" autocapitalize="none">
+</form>
+
+<div id="loader">
+<h2 id="loader-message">Loading scripts</h2>
+<div id="spinner">V</div>
+</div>
+</main>
+
+<script src="interpreter/jquery.min.js"></script>
+<script src="interpreter/toastr.min.js"></script>
+<script src="interpreter/vex.combined.min.js"></script>
+<script src="interpreter/jquery.powertip.min.js"></script>
+<script src="interpreter/haven.min.js"></script>
+<script src="interpreter/vorple.min.js"></script>
+
+<script>
+if( location.protocol === "file:" ) {
+$( 'body' )
+.empty()
+.html( "<div><p>You are currently viewing the page from the filesystem. " +
+"Unfortunately Vorple requires that the page is viewed through " +
+"the HTTP protocol, that is, you'll need to either upload it " +
+"to the Internet or install a local server.</p>" +
+'<p>See <a href="http://vorple-if.com/doc/localhost" style="color:#dde">vorple-if.com/doc/localhost</a> ' +
+"for more information.</p>" +
+"</div>" )
+.find( 'div' )
+.css({
+margin: "2em",
+padding: "1em",
+color: "#fff",
+backgroundColor: "rgb(137, 50, 58)",
+border: "3px solid gray"
+});
+
+throw new Error( "Vorple can't be run from the filesystem" );
+}
+
+$( function() {
+$( '#haven' ).prependTo( 'body' );
+$( '.container, .interpretercredit' ).remove();
+});
+
+Module.locateFile = function( name ) {
+return "interpreter/" + name;
+};
+
+vorple.options = {
+autosave: false,
+engineColors: false,
+
+// URL to the game file
+story: "External Media Experiment.gblorb"
+};
+
+vorple.debug.off();
+
+vorple.init();
+</script>
+
+<script src="interpreter/git.js" defer></script>
+</div>
+
+</div>
+<div class="interpretercredit"><a href="http://vorple-if.com">Vorple</a></div>
+</body>
+</html>
+
