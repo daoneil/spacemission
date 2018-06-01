@@ -21,13 +21,13 @@ Trajectory.prototype.propagate = function(uA){
 // Purpose: Determine a position on an orbital trajectory based on a true anomoly.
 // Used by the traceOrbits function to draw the orbits.
 var pos = [] ;
-var xdot; var ydot; var zdot;       // velocity coordinates
-var theta = uA;                     // Update true anomaly.
-var smA = this.smA;                 // Semi-major Axis
-var oI =  this.oI ;                 // Orbital Inclination
-var aP = this.aP ;                  // Get the object's orbital elements.
-var oE = this.oE;                   // Orbital eccentricity
-var aN = this.aN ;                  // ascending Node
+var xdot; var ydot; var zdot;            // velocity coordinates
+var theta = uA;                          // Update true anomaly.
+var smA = this.smA;                      // Semi-major Axis
+var oI =  this.oI ;                      // Orbital Inclination
+var aP = this.aP ;                       // Get the object's orbital elements.
+var oE = this.oE;                        // Orbital eccentricity
+var aN = this.aN ;                       // ascending Node
 var sLR = smA * (1 - oE^2) ;             // Compute Semi-Latus Rectum.
 var r = sLR/(1 + oE * Math.cos(theta));  // Compute radial distance.
 
@@ -117,11 +117,8 @@ function updatePosition()
 	  // Update the position for the following array of objects.
 	  var currentPosition = [] ;
       var deltaTime = 0 ;
-<<<<<<< HEAD
-	//  console.log("Length of heavenlyBodies  " + heavenlyBodies.length)
-=======
-	  console.log("Length of heavenlyBodies  " + heavenlyBodies.length)
->>>>>>> refs/remotes/origin/master
+  	//  console.log("Length of heavenlyBodies  " + heavenlyBodies.length)
+
 	  for (var hB in heavenlyBodies) {
 	    
 		var hbTAnomoly = heavenlyBodies[hB].trueAnomoly ;
@@ -161,10 +158,10 @@ function updatePosition()
         var trueAnomaly = eccentricToTrueAnomaly(e, eA) 
 		heavenlyBodies[hB].trueAnomoly = trueAnomaly
 		
-	 // console.log(hBName + " time = " +  heavenlyBodies[hB].time + "  delta time " + dt)		
+//    console.log(hBName + " time = " +  heavenlyBodies[hB].time + "  delta time " + dt)		
 //	  console.log(hBName + " eccentric anomaly " + E + " sin(f) " + sinf + " cos(f) " + cosf )
 //	  console.log(hBName + " mean anomaly " + mA + " eccentric anomaly " + eA ) 		
-//      console.log (hBName + " trueAnomaly = " + trueAnomaly + "   true Anomaly  " + heavenlyBodies[hB].trueAnomoly + "  mean motion = " + n) ;
+//    console.log (hBName + " trueAnomaly = " + trueAnomaly + "   true Anomaly  " + heavenlyBodies[hB].trueAnomoly + "  mean motion = " + n) ;
 //	  console.log(hBName + " eccentricity " + e + " true anomaly " + f + " Eccentric anomaly " + eA + " Mean anomaly " + m0 + " mean motion " + n) 	 
 	  }
 	  updateTheDate() ;
