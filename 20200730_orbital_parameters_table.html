@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Visualize Orbit</title>
+        <script src="https://preview.babylonjs.com/babylon.js"></script>
+		<script src="https://preview.babylonjs.com/gui/babylon.gui.js"</script>
+        <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+	    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+                 integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+                 crossorigin="anonymous"></script>
+<style>
+    html, body {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #renderCanvas {
+        width: 60%;
+        height: 55%;
+        touch-action: none;
+    }
+	
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 10px;
+        overview: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        table-layout: fixed;
+    }
+</style>
+</head>
+
+<body>
+<canvas id="renderCanvas" touch-action="none"></canvas>
+
+<div id="response">
+<table>
+<tr><th>Object Name</th><th>ID</th><th>Ecc.</th><th>Inc.</th><th>RAOTAN</th><th>AOP</th><th>SMA</th><th>mean Mo.</th><th>Date and Time</th></tr>
+<tr><td id="r1c1"></td><td id="r1c2"></td><td id="r1c3"></td><td id="r1c4"></td><td id="r1c5"></td><td id="r1c6"></td><td id="r1c7"></td><td id="r1c8"></td><td id="r1c9"></td></tr>
+<tr><td id="r2c1"></td><td id="r2c2"></td><td id="r2c3"></td><td id="r2c4"></td><td id="r2c5"></td><td id="r2c6"></td><td id="r2c7"></td><td id="r2c8"></td><td id="r2c9"></td></tr>
+<tr><td id="r3c1"></td><td id="r3c2"></td><td id="r3c3"></td><td id="r3c4"></td><td id="r3c5"></td><td id="r3c6"></td><td id="r3c7"></td><td id="r3c8"></td><td id="r3c9"></td></tr>
+<tr><td id="r4c1"></td><td id="r4c2"></td><td id="r4c3"></td><td id="r4c4"></td><td id="r4c5"></td><td id="r4c6"></td><td id="r4c7"></td><td id="r4c8"></td><td id="r4c9"></td></tr>
+<tr><td id="r5c1"></td><td id="r5c2"></td><td id="r5c3"></td><td id="r5c4"></td><td id="r5c5"></td><td id="r5c6"></td><td id="r5c7"></td><td id="r5c8"></td><td id="r5c9"></td></tr>
+<tr><td id="r6c1"></td><td id="r6c2"></td><td id="r6c3"></td><td id="r6c4"></td><td id="r6c5"></td><td id="r6c6"></td><td id="r6c7"></td><td id="r6c8"></td><td id="r6c9"></td></tr>
+<tr><td id="r7c1"></td><td id="r7c2"></td><td id="r7c3"></td><td id="r7c4"></td><td id="r7c5"></td><td id="r7c6"></td><td id="r7c7"></td><td id="r7c8"></td><td id="r7c9"></td></tr>
+<tr><td id="r8c1"></td><td id="r8c2"></td><td id="r8c3"></td><td id="r8c4"></td><td id="r8c5"></td><td id="r8c6"></td><td id="r8c7"></td><td id="r8c8"></td><td id="r8c9"></td></tr>
+</table>
+</div>
+
+<script>
+/*--------------------------------------------------------------------------------+
+ |          Establish a canvas, scene, and light.                                 |
+ +--------------------------------------------------------------------------------*/
+    var canvas = document.getElementById("renderCanvas"); // Get the canvas element
+    var engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
+	var scene = new BABYLON.Scene(engine);
+    var camera = new BABYLON.ArcRotateCamera("Camera", -Math.PI / 2, Math.PI / 2, 12, BABYLON.Vector3.Zero(), scene);
+	// Positions the camera overwriting alpha, beta, radius
+	
+    camera.setPosition(new BABYLON.Vector3(12, 3, -7));
+	camera.attachControl(canvas, true); 
+ 	var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -5, 10), scene);
+	
+    scene.clearColor = BABYLON.Color3.Black();
+
+	var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:1.9}, scene);
+//	var axialTilt = -23 * 0.174533 ;
+
+/*--------------------------------------------------------------------------------+
+ |       Retrieve Two-Line Elements and Populate an Orbital parameters table.     |
+ +--------------------------------------------------------------------------------*/
+function populate_orbital_parameter_table(rowNum) {
+   let mu = Math.pow(3.986004418e14,0.3333);  // standard gravitational parameter for Earth raised to 1/3 power
+
+   let intDes = [25544,29155,45787,41019,39444,27453,45854,25994] ;
+   var srchStr = "https://data.ivanstanojevic.me/api/tle/IDNumber" ;
+ 
+   oID = intDes[rowNum - 1];
+   var scraft = srchStr.replace("IDNumber", oID) ;
+
+    $.getJSON(scraft,
+        function(data) {
+		//  console.log(data);	  
+		  var satrec = {
+		      name: data.name,
+			  satid: data.satelliteId,
+			  ecc: parseFloat(data.line2.substring(26,33)) / 1e7,
+			  inc: data.line2.substring(8,16),
+			  raan: data.line2.substring(17,25),
+			  aop: data.line2.substring(34,42),
+			  mMo: data.line2.substring(52,63),
+			  mA: data.line2.substring(43,51),
+			  date: data.date
+			  };	
+		/* Calculate the semi-major axis using mean anomaly and the standard gravitational parameter.
+		   First, convert the mean anomaly from revolutions per day to radians per second.
+		   Reference for calculating semi-major axis using mean motion:
+           https://space.stackexchange.com/questions/18289/how-to-get-semi-major-axis-from-tle      */
+		    var n = satrec.mMo * (2 * Math.PI / 86400)
+		    var sma = mu / Math.pow(n,0.6667)
+			sma = sma.toFixed(4);
+		
+		    var cell = "" ;
+            var rowName = "#r" + rowNum.toString() + "c";		  
+			cell = rowName + "1"; $(cell).append(satrec.name); 
+            cell = rowName + "2"; $(cell).append(satrec.satid);
+			cell = rowName + "3"; $(cell).append(satrec.ecc); 
+			cell = rowName + "4"; $(cell).append(satrec.inc); 			  
+			cell = rowName + "5"; $(cell).append(satrec.raan); 
+			cell = rowName + "6"; $(cell).append(satrec.aop); 
+			cell = rowName + "7"; $(cell).append(sma); 
+			cell = rowName + "8"; $(cell).append(satrec.mMo); 
+            cell = rowName + "9"; $(cell).append(satrec.date);
+
+	   });
+}
+/*--------------------------------------------------------------------------------+
+ |                  Add a world axis and globe to the scene.                      |
+ +--------------------------------------------------------------------------------*/
+function create_Axes_and_Globe() {
+  //-----------  Add the world axes to the scene. ------------
+      var size = 3.5;
+        var makeTextPlane = function (text, color, size) {
+            var dynamicTexture = new BABYLON.DynamicTexture("DynamicTexture", 50, scene, true);
+            dynamicTexture.hasAlpha = true;
+            dynamicTexture.drawText(text, 5, 40, "bold 36px Arial", color, "transparent", true);
+            var plane = new BABYLON.Mesh.CreatePlane("TextPlane", size, scene, true);
+            plane.material = new BABYLON.StandardMaterial("TextPlaneMaterial", scene);
+            plane.material.backFaceCulling = false;
+            plane.material.specularColor = new BABYLON.Color3(0, 0, 0);
+            plane.material.diffuseTexture = dynamicTexture;
+            return plane;
+        };
+
+        var axisX = BABYLON.Mesh.CreateLines("axisX", [
+            new BABYLON.Vector3.Zero(), new BABYLON.Vector3(size, 0, 0), new BABYLON.Vector3(size * 0.95, 0.05 * size, 0),
+            new BABYLON.Vector3(size, 0, 0), new BABYLON.Vector3(size * 0.95, -0.05 * size, 0)
+        ], scene);
+        axisX.color = new BABYLON.Color3(1, 0, 0);
+        var xChar = makeTextPlane("X", "red", size / 10);
+        xChar.position = new BABYLON.Vector3(0.9 * size, -0.05 * size, 0);
+        var axisY = BABYLON.Mesh.CreateLines("axisY", [
+            new BABYLON.Vector3.Zero(), new BABYLON.Vector3(0, size, 0), new BABYLON.Vector3(-0.05 * size, size * 0.95, 0),
+            new BABYLON.Vector3(0, size, 0), new BABYLON.Vector3(0.05 * size, size * 0.95, 0)
+        ], scene);
+        axisY.color = new BABYLON.Color3(0, 1, 0);
+        var yChar = makeTextPlane("Y", "green", size / 10);
+        yChar.position = new BABYLON.Vector3(0, 0.9 * size, -0.05 * size);
+        var axisZ = BABYLON.Mesh.CreateLines("axisZ", [
+            new BABYLON.Vector3.Zero(), new BABYLON.Vector3(0, 0, size), new BABYLON.Vector3(0, -0.05 * size, size * 0.95),
+            new BABYLON.Vector3(0, 0, size), new BABYLON.Vector3(0, 0.05 * size, size * 0.95)
+        ], scene);
+        axisZ.color = new BABYLON.Color3(0, 0, 1);
+        var zChar = makeTextPlane("Z", "blue", size / 10);
+        zChar.position = new BABYLON.Vector3(0, 0.05 * size, 0.9 * size);
+ 
+   //------------ Add a globe to the scene. ---------------------------
+   //  https://upload.wikimedia.org/wikipedia/commons/a/ac/Earthmap1000x500.jpg
+   //  https://upload.wikimedia.org/wikipedia/commons/5/5a/Nova-totius-terrarum-orbis-geographica-ac-hydrographica-tabula.jpg
+    var earth = new BABYLON.StandardMaterial("earth", scene);
+	earth.diffuseTexture = new BABYLON.Texture("https://upload.wikimedia.org/wikipedia/commons/a/ac/Earthmap1000x500.jpg", scene);
+//	var sphere = BABYLON.MeshBuilder.CreateSphere("sphere", {diameter:2}, scene); 
+	sphere.material = earth ;
+
+//	sphere.addRotation(0,0, axialTilt) ;
+	sphere.rotation.z = 180 * 0.0174533 ;            // Convert degrees to radians. Include 23 degree tilt from 90 degrees.
+			 
+//	return scene;   // May not be necessary with the scene declared as a global variable.
+};
+
+function space_object(name, a, e, inc, raotan, aop,mMo) {
+   inc = inc     * 0.0174533 ;       // inclination = pitch about X axis
+    raotan = raotan * 0.0174533 ;    // roll about Z axis
+    aop = aop     * 0.0174533 ;      // argument of periapsis = yaw about Y axis
+	
+	a = a / 1000;                    // convert meters to kilometers.
+	a = a / 6371;                    // divide by the radius of the Earth to get a relatively small number.
+	
+	var center_to_focus = a * e  ;   // distance from the center to one of the foci
+    var orbPts = [];                 // Orbit points
+    var orbstep = Math.PI / (360/mMo);    // Incremental value for the loop
+
+  // Generate 2D ellipse
+  for (i = -Math.PI; i < Math.PI + orbstep; i += orbstep) {
+    var x =  a * Math.cos(i) - e ;                  // 2D ellipse on
+    var z =  a * Math.sqrt(1-e^2) * Math.sin(i);    // the X-Z plane
+	    z = z - center_to_focus ;
+    var y = 0 ;	                                    // Y-axis points up.
+    orbPts.push(new BABYLON.Vector3(x, y, z));
+  }	
+
+  var rotMat = BABYLON.Matrix.RotationYawPitchRoll(aop,inc,raotan)
+
+ // Apply the rotation matrix to the array of orbit points.
+  for(i = 0; i < orbPts.length; i++) {
+     orbPts[i] = BABYLON.Vector3.TransformCoordinates(orbPts[i], rotMat);
+  }
+
+ // Create lines that represent the orbit
+	var lines = BABYLON.MeshBuilder.CreateLines("lines", {points: orbPts}, scene); 
+
+ //------------------- Make a satellite -----------------------------
+    var fSH = 0.2    // satellite body height
+	var fST = 0.12   // satellite body top diameter
+	var fSB = 0.12   // satellite body bottom diameter
+	var fAH = 0.1    // satellite arm height
+	var fAW = 0.25   // satellite arm width
+	var fAD = 0.04   // satellite arm depth
+    var body = BABYLON.MeshBuilder.CreateCylinder("body", { height: fSH, diameterTop: fST, diameterBottom: fSB, tessellation: 6, subdivisions: 1 }, scene);
+    var arm = BABYLON.MeshBuilder.CreateBox("arm", { height: fAH, width: fAW, depth: fAD }, scene);
+    arm.position.x = 0.05;
+    var satellite = BABYLON.Mesh.MergeMeshes([body, arm], true);
+ //-------------------------------------------------------------------	
+	this.name = name;
+	this.orbit = orbPts ;
+	this.model = satellite ;
+	this.ta = 0;       // true anomaly.
+}
+
+ function make_orbits() {
+
+  	var spaceTraffic = [] ;
+		 
+    for (k=1; k < 9; k++) {
+	   var cell = "r" + k.toString() + "c" ;
+	   
+       var objName = document.getElementById(cell + "1").innerHTML;
+       var objSMA = document.getElementById(cell + "7").innerHTML;
+	   var objEcc = document.getElementById(cell + "3").innerHTML;
+	   var objInc = document.getElementById(cell + "4").innerHTML;
+	   var objRAOTAN = document.getElementById(cell + "5").innerHTML;
+	   var objAOP = document.getElementById(cell + "6").innerHTML;
+	   var objMMo = document.getElementById(cell + "8").innerHTML;
+
+       var sc = new space_object(objName, objSMA,objEcc,objInc,objRAOTAN,objAOP,objMMo);
+	   
+	 //  console.log(k.toString() + ".  pushing " + sc.name) ;
+	   spaceTraffic.push(sc) ;
+	}
+	
+	var totalTicks = 360 * 24 ;
+	var tick = 0 ;
+	var tickInc = (1/24) * 0.174533 ;
+	 // Register a render loop to repeatedly render the scene
+    engine.runRenderLoop(function () {
+        scene.render();
+				
+		for (j = 0; j < spaceTraffic.length; j++) {	
+			var sc = spaceTraffic[j] ;
+		//	console.log(sc.name) ;
+			if (sc.ta < sc.orbit.length) {
+		       sc.model.position = sc.orbit[sc.ta];
+			   sc.ta = sc.ta + 1 ;          // Increment array index.
+			} else {
+			  sc.ta = 0;                  // Reset the array index.
+		    }
+		}
+		sphere.rotate(BABYLON.Axis.Y, tickInc, BABYLON.Space.LOCAL);
+		  if(tick == totalTicks) {
+		   //   sphere.rotationQuaternion = new BABYLON.Quaternion.Identity(); 
+	     //     sphere.addRotation(0,0, axialTilt) ;
+			  tick = 0;
+		  }
+		  tick++;
+    });
+ }
+ 
+/*------------------------------------------------------+
+ |                    Main program                      |
+ +------------------------------------------------------*/
+  for (i=1; i < 9; i++) {
+      populate_orbital_parameter_table(i) ;
+  }
+  create_Axes_and_Globe() ;
+  
+  var check_R8C8 = setInterval(function() {
+      var cellVal = document.getElementById("r8c9").innerHTML;
+
+      if(cellVal.length > 2) {
+	    make_orbits() ;	  
+        clearInterval(check_R8C8) ;
+		
+	   } 
+    }, 1000);
+	
+</script>
+</body>
+</html>
