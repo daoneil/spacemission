@@ -89,7 +89,7 @@
 
 	function get_datablock() {
      $.getJSON("compacted_OrbitalOntology.jsonld", function(result){
-        var it  = "<table border='1'>  <caption>Spheres in the above are animated by an orbital propagator using the following parameters.</caption><tr><th>Name</th><th>Arg.Perigee</th><th>Mean Anomoly</th><th>Eccentricty</th><th>Inclination</th><th>SemiMajor Axis</th><th>RAAN</th><th>Period</th></tr>"
+        var it  = "<table border='1'><caption>The spheres are animated by an orbital propagator using the following parameters.</caption><tr><th>Name</th><th>Arg.Perigee</th><th>Mean Anomoly</th><th>Eccentricty</th><th>Inclination</th><th>SemiMajor Axis</th><th>RAAN</th><th>Period</th></tr>"
 	     $.each(result.graph, function(i, field){
 		 
 		   if (i > 0 && i < 5) { // alert(field.name.value) ; 
