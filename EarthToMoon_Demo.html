@@ -2813,15 +2813,15 @@ var lunarOrbit_trajectory =
     } }];
 
    var czmlDataSource1 = new Cesium.CzmlDataSource();
-    // czmlDataSource1.load('LunarProbeTrajectory_withBillboard.czml');
+    czmlDataSource1.load('http://daoneil.github.io/spacemission/LunarProbeTrajectory_withBillboard.czml');
    	//   czmlDataSource1 = document.querySelector("#billboard").innerText ;
-	   czmlDataSource1.load(lunarProbe_billboard);
+	 //  czmlDataSource1.load(lunarProbe_billboard);
        viewer.dataSources.add(czmlDataSource1); 
 	   
    var czmlDataSource2 = new Cesium.CzmlDataSource();
-      //  czmlDataSource2.load('LunarOrbit_withTexture.czml');
+       czmlDataSource2.load('http://daoneil.github.io/spacemission/LunarOrbit_withTexture.czml');
 	   // czmlDataSource2 = document.querySelector("#trajectory").innerText ;
-	   czmlDataSource2.load(lunarOrbit_trajectory);
+	  // czmlDataSource2.load(lunarOrbit_trajectory);
        viewer.dataSources.add(czmlDataSource2);   
 
     var camera = viewer.scene.camera;
