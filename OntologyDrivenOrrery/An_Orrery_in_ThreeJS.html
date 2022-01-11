@@ -14,7 +14,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="TrackballControls.js"></script>
 		<script src="OrbitalPropagator.js"></script>
-<script src="compacted_OrbitalOntology.jsonld"  type="application/ld+json" id="datablock"></script>
+		<script src="compacted_OrbitalOntology.jsonld"  type="application/ld+json" id="datablock"></script>
 
 		<script>
         var camera ;
@@ -74,24 +74,8 @@
 			  j = j + 1 ;
 			} 
 			camera.position.z = 5;
-			
-		//	console.log(scene) ;
 		
 		}
-		</script>
-<div></div>
-<div id="planetary_orbits"></div>
-<!-- <i>RAAN = Right Ascension of Ascending Node</i>
- <p id="modelDate">December 9, 2014</p> -->
- <table border='1'><caption>The spheres are animated by an orbital propagator using the following parameters.</caption><tr><th>Name</th><th>Arg.Perigee</th><th>Mean Anomoly</th><th>Eccentricty</th><th>Inclination</th><th>SemiMajor Axis</th><th>RAAN</th><th>Period</th></tr>
- <tr><td id="r1c1"></td><td id="r1c2"></td><td id="r1c3"></td><td id="r1c4"></td><td id="r1c5"></td><td id="r1c6"></td><td id="r1c7"></td><td id="r1c8"></td></tr>
- <tr><td id="r2c1"></td><td id="r2c2"></td><td id="r2c3"></td><td id="r2c4"></td><td id="r2c5"></td><td id="r2c6"></td><td id="r2c7"></td><td id="r2c8"></td></tr>
- <tr><td id="r3c1"></td><td id="r3c2"></td><td id="r3c3"></td><td id="r3c4"></td><td id="r3c5"></td><td id="r3c6"></td><td id="r3c7"></td><td id="r3c8"></td></tr>
- <tr><td id="r4c1"></td><td id="r4c2"></td><td id="r4c3"></td><td id="r4c4"></td><td id="r4c5"></td><td id="r4c6"></td><td id="r4c7"></td><td id="r4c8"></td></tr> 
-</table> 
-
-		
-		<script>
 		//-------------------------------------------
  	 	function render() {
 	           requestAnimationFrame( render );
@@ -103,35 +87,14 @@
 				updatePosition() ;
 			}
 
-     function populate_table(rowNum,name,argP,meanA,ecc,inc,sma,raan,per) {
-	     console.log(rowNum + "  " + name + "," + argP + "," + meanA + "," + ecc);
-		 var cellID = "r" + rowNum + "c1"; console.log(cellID);
-		 cellID = "r" + rowNum + "c1"    ; document.getElementById(cellID).textContent = name;
-         cellID = "r" + rowNum + "c2"    ; document.getElementById(cellID).textContent = argP;
-         cellID = "r" + rowNum + "c3"    ; document.getElementById(cellID).textContent = meanA;
-         cellID = "r" + rowNum + "c4"    ; document.getElementById(cellID).textContent = ecc;
-         cellID = "r" + rowNum + "c5"    ; document.getElementById(cellID).textContent = inc;
-         cellID = "r" + rowNum + "c6"    ; document.getElementById(cellID).textContent = sma;
-         cellID = "r" + rowNum + "c7"    ; document.getElementById(cellID).textContent = raan;
-         cellID = "r" + rowNum + "c8"    ; document.getElementById(cellID).textContent = per;
-	  
-	 }
-	 
-   function get_datablock() {
-
-     // Reference https://stackoverflow.com/questions/38602543/is-there-a-way-to-access-json-ld-via-javascript-if-it-doesnt-have-an-id
-	    // var jsonld = document.querySelectorAll('script[type="application/ld+json"]').innerText;
-		var jsonld = document.querySelector('#OrbitOntology').innerText;
-         var result = JSON.parse(jsonld);
-       // console.log(result.graph[1].name.value);		
-		
-	  //   $.each(result.graph, function(i, field){
-	      for(i = 1; i < result.graph.length; i++) {
-		   field = result.graph[i];
+	function get_datablock() {
+     $.getJSON("compacted_OrbitalOntology.jsonld", function(result){
+        var it  = "<table border='1'><caption>The spheres are animated by an orbital propagator using the following parameters.</caption><tr><th>Name</th><th>Arg.Perigee</th><th>Mean Anomoly</th><th>Eccentricty</th><th>Inclination</th><th>SemiMajor Axis</th><th>RAAN</th><th>Period</th></tr>"
+	     $.each(result.graph, function(i, field){
+		 
 		   if (i > 0 && i < 5) { // alert(field.name.value) ; 
-		
 		   //smA,oI,aP,oE,aN,mAe,Sidereal
-             celestialBody = new Trajectory(field.name.value,
+             celestialBody = new Trajectory(field.name,
 		                             field.semiMajorAxis.value,
 									 field.inclination.value,
 									 field.argPerigee.value,
@@ -141,27 +104,41 @@
 									 field.sidereal.value) ;
 			 
 			 heavenlyBodies.push(celestialBody) ;
-		   	
-			populate_table(i,field.name.value,
-                            field.argPerigee.value, 
-                            field.meanAnomoly.value,
-                            field.eccentricity.value,
-                            field.inclination.value,
-                            field.semiMajorAxis.value,
-                            field.raan.value,
-                            field.sidereal.value) ;
-	
-		   }		 
-
-		 }
+		   }
+		      
+		    it = it + "<tr>"
+		    if (i > 0 && i < 5) {
+			   it = it + "<td>" + field.name.value + "</td>";
+               it = it + "<td>" + field.argPerigee.value + "</td>";
+			   it = it + "<td>" + field.meanAnomoly.value + "</td>";
+			   it = it + "<td>" + field.eccentricity.value + "</td>";
+			   it = it + "<td>" + field.inclination.value + "</td>";
+			   it = it + "<td>" + field.semiMajorAxis.value + "</td>";
+			   it = it + "<td>" + field.raan.value + "</td>";
+			   it = it + "<td>" + field.sidereal.value + "</td>";
+			}
+			 it = it + "</tr>"
+        });
+		it = it + "</table>"
+		console.log(it);
+		// $("div").append(it);			
+	    document.getElementById("planetary_orbits").innerHTML = it;
+		
+		traceOrbits() ;
+    });
 }
-
 //----------------------------------
-            init() ;
-			get_datablock() ;	
-			traceOrbits() ;
-			animate() ;
-		  
+             init() ;
+			 get_datablock() ;
+			 
+			 animate() ;
+
 		</script>
+
+<div></div>
+<div id="planetary_orbits"></div>
+<!-- <i>RAAN = Right Ascension of Ascending Node</i>
+ <p id="modelDate">December 9, 2014</p> -->
+		
 	</body>
 </html>
