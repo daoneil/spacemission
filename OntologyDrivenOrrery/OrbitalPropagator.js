@@ -117,8 +117,7 @@ function updatePosition()
 	  // Update the position for the following array of objects.
 	  var currentPosition = [] ;
       var deltaTime = 0 ;
-  	//  console.log("Length of heavenlyBodies  " + heavenlyBodies.length)
-
+	  
 	  for (var hB in heavenlyBodies) {
 	    
 		var hbTAnomoly = heavenlyBodies[hB].trueAnomoly ;
@@ -127,7 +126,7 @@ function updatePosition()
 	    var Xpos = currentPosition[0] ;
 	    var Ypos = currentPosition[1] ;
 	    var Zpos = currentPosition[2] ;
-	    var hBName = heavenlyBodies[hB].name.value ;   // get the name of the current object and update translation
+	    var hBName = heavenlyBodies[hB].name;   // get the name of the current object and update translation
 		
 		curObj = scene.getObjectByName(hBName) ;
 		curObj.position.set (Xpos, Ypos, Zpos) ;
