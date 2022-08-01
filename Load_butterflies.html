@@ -58,10 +58,11 @@
             var scene = new BABYLON.Scene(engine);
         
             //Adding a light
-            var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0.5, 0.5, 3), scene);
+           // var light = new BABYLON.PointLight("Omni", new BABYLON.Vector3(0.5, 0.5, 3), scene);
+			var light = new BABYLON.DirectionalLight("DirectionalLight", new BABYLON.Vector3(0, -1, 0), scene);
         
             //Adding an Arc Rotate Camera
-            var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0.5, 1.7, BABYLON.Vector3.Zero(), scene);
+            var camera = new BABYLON.ArcRotateCamera("Camera", 0, 1.5, 5, BABYLON.Vector3.Zero(), scene);
             camera.attachControl(canvas, false);
         
             // The first parameter can be used to specify which mesh to import. Here we import all meshes
